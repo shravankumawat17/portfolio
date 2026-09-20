@@ -169,3 +169,18 @@
 .spotlight-card:hover::before {
   opacity: 1;
 }
+
+/* Continuous 35mm Film Ribbon Animation */
+@keyframes filmScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-film-scroll {
+  animation: filmScroll 45s linear infinite;
+  width: max-content;
+}

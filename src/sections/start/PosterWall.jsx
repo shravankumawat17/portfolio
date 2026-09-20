@@ -37,7 +37,7 @@ export default function PosterWall({ onEnterFeature }) {
   }
 
   return (
-    <section id="start" className="relative min-h-screen pt-24 pb-20 px-2 sm:px-4 md:px-8 bg-[#060608] overflow-hidden">
+    <section id="poster-wall" className="relative py-24 px-2 sm:px-4 md:px-8 bg-[#060608] overflow-hidden">
       
       {/* Background Volumetric Lighting */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-red-600/10 rounded-full blur-[180px] pointer-events-none" />
@@ -47,7 +47,7 @@ export default function PosterWall({ onEnterFeature }) {
       <div className="max-w-5xl mx-auto text-center mb-8 select-none relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-amber-400/40 text-amber-400 text-xs font-mono tracking-widest uppercase mb-4 shadow-xl shadow-amber-400/10">
           <Clapperboard className="w-3.5 h-3.5 text-amber-400" />
-          <span>Scene 01 • The Master Movie Collage</span>
+          <span>Archive 01 • The 36-Movie Universe</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl md:text-7xl font-serif font-black text-white tracking-tight uppercase leading-none">
