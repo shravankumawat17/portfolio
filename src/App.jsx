@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ThreeCanvas from './components/ThreeCanvas'
 import FilmOverlay from './components/FilmOverlay'
 import CinemaNav from './components/CinemaNav'
+import DeadpoolKnifeCursor from './components/DeadpoolKnifeCursor'
 import CountdownLeader from './sections/start/CountdownLeader'
 import HeroCinemaUniverse from './sections/start/HeroCinemaUniverse'
 import WorkReel from './sections/work/WorkReel'
@@ -52,6 +53,9 @@ export default function App() {
 
       {/* Visual cinema overlay */}
       <FilmOverlay />
+
+      {/* Deadpool Combat Knife / Katana Custom Cursor */}
+      <DeadpoolKnifeCursor />
 
       {/* Opening Countdown & Title Card Leader */}
       {introActive ? (

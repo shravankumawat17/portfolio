@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Cpu, Layers, Zap, Palette, Film, Sparkles, ChevronRight, Terminal, Compass, Flame } from 'lucide-react'
 
 const MOVIE_WORLDS = [
@@ -101,7 +101,17 @@ const MOVIE_WORLDS = [
 
 export default function ActArsenal() {
   const [activeWorldId, setActiveWorldId] = useState('ai-machine')
+  const stageRef = useRef(null)
   const activeWorld = MOVIE_WORLDS.find(w => w.id === activeWorldId) || MOVIE_WORLDS[0]
+
+  const handleMouseMove = (e) => {
+    if (!stageRef.current) return
+    const rect = stageRef.current.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    stageRef.current.style.setProperty('--mouse-x', `${x}px`)
+    stageRef.current.style.setProperty('--mouse-y', `${y}px`)
+  }
 
   return (
     <div className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#050507]">
@@ -177,9 +187,19 @@ export default function ActArsenal() {
 
         {/* ACTIVE MOVIE WORLD SHOWCASE WITH REAL POSTERS & SCENE IMAGES */}
         <div 
-          className={`bg-gradient-to-br ${activeWorld.bgGradient} border-2 rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-700 relative overflow-hidden`}
+          ref={stageRef}
+          onMouseMove={handleMouseMove}
+          className={`spotlight-card bg-gradient-to-br ${activeWorld.bgGradient} border-2 rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-700 relative overflow-hidden group`}
           style={{ borderColor: `${activeWorld.accent}80` }}
         >
+          {/* Dynamic Cursor Spotlight */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+            style={{
+              background: `radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${activeWorld.accent}25, transparent 75%)`
+            }}
+          />
+
           {/* Supporting Scene Backdrop */}
           {activeWorld.sceneImage && (
             <div className="absolute inset-0 pointer-events-none opacity-20">

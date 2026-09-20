@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react'
-import { Film, Play, ChevronDown, Sparkles, ZoomIn, ZoomOut, Flame, Shield } from 'lucide-react'
+import { Film, Play, ChevronDown, Sparkles, ZoomIn, ZoomOut, Flame, Shield, Ticket } from 'lucide-react'
+import DirectorsPass3D from '../../components/DirectorsPass3D'
 
 export default function HeroCinemaUniverse({ onEnterVerse }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [isZoomed, setIsZoomed] = useState(false)
+  const [showPass, setShowPass] = useState(false)
   const screenRef = useRef(null)
 
   const handleMouseMove = (e) => {
@@ -50,7 +52,7 @@ export default function HeroCinemaUniverse({ onEnterVerse }) {
           "A developer who visualizes every line of code, algorithm, and system as a living movie experience."
         </p>
 
-        {/* Director Credentials Badges */}
+        {/* Director Credentials Badges & 3D Pass Trigger */}
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-zinc-300">
           <span className="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-700">
             Dwarkadas J. Sanghvi College of Engineering
@@ -63,7 +65,26 @@ export default function HeroCinemaUniverse({ onEnterVerse }) {
           <span className="px-3 py-1 rounded-lg bg-amber-950/80 border border-amber-600 text-amber-300 font-bold">
             JEE Main 97.93%ile
           </span>
+          <span className="text-red-500 font-bold">•</span>
+          <button
+            onClick={() => setShowPass(!showPass)}
+            className={`px-3.5 py-1 rounded-lg border flex items-center gap-1.5 font-bold transition-all hover:scale-105 active:scale-95 ${
+              showPass
+                ? 'bg-amber-400 text-black border-amber-300 shadow-lg shadow-amber-400/30'
+                : 'bg-red-600/20 border-red-500/80 text-red-400 hover:bg-red-600/30'
+            }`}
+          >
+            <Ticket className="w-3.5 h-3.5" />
+            <span>{showPass ? 'Close 3D Pass' : 'Inspect 3D Director Pass'}</span>
+          </button>
         </div>
+
+        {/* 3D Holographic Director's Pass */}
+        {showPass && (
+          <div className="animate-in fade-in zoom-in duration-300">
+            <DirectorsPass3D />
+          </div>
+        )}
 
       </div>
 

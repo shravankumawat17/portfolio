@@ -41,6 +41,10 @@ export default function MissionCard({ project, index }) {
     const rotateX = ((y - centerY) / centerY) * -8
     const rotateY = ((x - centerX) / centerX) * 8
     setTilt({ x: rotateX, y: rotateY })
+
+    // Set CSS variables for spotlight effect
+    cardRef.current.style.setProperty('--mouse-x', `${x}px`)
+    cardRef.current.style.setProperty('--mouse-y', `${y}px`)
   }
 
   const handleMouseLeave = () => {
@@ -62,7 +66,7 @@ export default function MissionCard({ project, index }) {
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
         transition: tilt.x === 0 ? 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)' : 'none'
       }}
-      className="relative bg-gradient-to-br from-zinc-950 via-[#100a0c] to-zinc-950 border-2 border-red-600/40 hover:border-red-500 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 group flex flex-col justify-between select-none"
+      className="spotlight-card relative bg-gradient-to-br from-zinc-950 via-[#100a0c] to-zinc-950 border-2 border-red-600/40 hover:border-red-500 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 group flex flex-col justify-between select-none"
     >
       {/* 1. MOVIE SCENE STILL AS ATMOSPHERIC BACKGROUND (Not intruding on text) */}
       <div className="absolute inset-0 pointer-events-none opacity-15 group-hover:opacity-25 transition-opacity duration-500">
@@ -76,6 +80,14 @@ export default function MissionCard({ project, index }) {
 
       {/* Top Deadpool Crimson Accent Bar */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-amber-400 to-red-600" />
+
+      {/* Dynamic Cursor Spotlight (Elevate 1.0 style) */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+        style={{
+          background: 'radial-gradient(420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(229, 9, 20, 0.15), rgba(212, 175, 55, 0.08) 40%, transparent 80%)'
+        }}
+      />
 
       {/* Content Body */}
       <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-between flex-1">
