@@ -92,6 +92,42 @@ export default function CountdownLeader({ onComplete }) {
     whiteNoise.start(now)
   }
 
+  // Preload and manage Marvel Studios Intro Theme Audio
+  const marvelAudioRef = useRef(null)
+
+  useEffect(() => {
+    try {
+      const audio = new Audio('/assets/marvel-intro.mp4')
+      audio.preload = 'auto'
+      audio.volume = 0.85
+      marvelAudioRef.current = audio
+      window.__portfolioMarvelAudio = audio
+    } catch (e) {
+      console.warn('Could not initialize Marvel Audio', e)
+    }
+
+    return () => {
+      if (marvelAudioRef.current) {
+        marvelAudioRef.current.pause()
+      }
+    }
+  }, [])
+
+  // Function to play Marvel Studios intro theme (with synthesized fanfare fallback)
+  const playMarvelIntroTheme = () => {
+    if (marvelAudioRef.current) {
+      marvelAudioRef.current.currentTime = 0
+      marvelAudioRef.current.play().then(() => {
+        window.dispatchEvent(new CustomEvent('marvel_audio_playing', { detail: { playing: true } }))
+      }).catch((e) => {
+        console.warn('Autoplay blocked, falling back to Web Audio fanfare', e)
+        playTitleFanfare()
+      })
+    } else {
+      playTitleFanfare()
+    }
+  }
+
   // Function to play dramatic cinematic opening fanfare on title card reveal
   const playTitleFanfare = () => {
     const ctx = audioCtxRef.current
@@ -145,10 +181,10 @@ export default function CountdownLeader({ onComplete }) {
       }, 700)
       return () => clearTimeout(timer)
     } else {
-      // Transition to title card with cinematic fanfare
+      // Transition to title card with Marvel Studios intro theme
       const finishCountdown = setTimeout(() => {
         setPhase('titlecard')
-        playTitleFanfare()
+        playMarvelIntroTheme()
       }, 700)
       return () => clearTimeout(finishCountdown)
     }
@@ -161,13 +197,16 @@ export default function CountdownLeader({ onComplete }) {
         setPhase('transition')
         setTimeout(() => {
           if (onComplete) onComplete()
-        }, 600)
-      }, 2400)
+        }, 800)
+      }, 3400)
       return () => clearTimeout(cardTimer)
     }
   }, [phase, onComplete])
 
   const handleSkip = () => {
+    if (marvelAudioRef.current) {
+      marvelAudioRef.current.pause()
+    }
     setPhase('transition')
     setTimeout(() => {
       if (onComplete) onComplete()
@@ -238,18 +277,19 @@ export default function CountdownLeader({ onComplete }) {
         </div>
       )}
 
-      {/* PHASE 2: DRAMATIC TITLE CARD REVEAL */}
+      {/* PHASE 2: DRAMATIC MARVEL-INSPIRED TITLE CARD REVEAL */}
       {phase === 'titlecard' && (
         <div className="text-center px-6 max-w-2xl transform animate-subtle-pulse select-none">
-          <p className="text-xs sm:text-sm font-mono tracking-[0.35em] text-amber-400 uppercase mb-3">
-            Produced & Directed By
-          </p>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-black text-white tracking-wider uppercase drop-shadow-[0_10px_30px_rgba(212,175,55,0.3)]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-red-600 text-white font-mono font-black text-xs tracking-[0.35em] uppercase mb-4 shadow-[0_0_30px_rgba(229,9,20,0.6)]">
+            <span>MARVEL PROTOCOL • STUDIOS</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-black text-white tracking-wider uppercase drop-shadow-[0_10px_35px_rgba(229,9,20,0.4)]">
             SHRAVAN KUMAWAT
           </h1>
-          <div className="h-0.5 w-24 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent my-6" />
-          <p className="text-xs sm:text-sm font-mono text-zinc-400 tracking-widest uppercase">
-            A Cinematic Portfolio • Feature Presentation
+          <div className="h-0.5 w-28 mx-auto bg-gradient-to-r from-transparent via-red-500 to-transparent my-6" />
+          <p className="text-xs sm:text-sm font-mono text-amber-300 tracking-[0.25em] uppercase font-bold">
+            THE CINEMATIC UNIVERSE PREMIERE
           </p>
         </div>
       )}
