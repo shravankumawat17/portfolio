@@ -5,11 +5,17 @@ const MOVIE_WORLDS = [
   {
     id: 'ai-machine',
     title: 'THE MACHINE MIND',
-    cinemaReference: 'The Matrix • Interstellar • Iron Man (J.A.R.V.I.S.)',
+    cinemaReference: 'The Matrix • Interstellar • Iron Man',
     genre: 'Sci-Fi / Synthetic Intelligence',
     accent: '#00f2fe',
-    accentGlow: 'rgba(0, 242, 254, 0.35)',
-    bgGradient: 'from-[#05151e] via-[#070b10] to-[#050507]',
+    accentGlow: 'rgba(0, 242, 254, 0.4)',
+    bgGradient: 'from-[#041a24] via-[#071118] to-[#050507]',
+    sceneImage: '/assets/movie-scenes/project-therapist.jpg',
+    moviePosters: [
+      { title: 'Source Code', poster: '/posters_cache/source-code.jpg' },
+      { title: 'Interstellar', poster: '/posters_cache/apex.jpg' },
+      { title: 'Deadpool AI', poster: '/posters_cache/deadpool.jpg' }
+    ],
     tagline: 'Teaching machines to think, parse reality, and converse with human emotion.',
     narrative: 'In a digital universe driven by neural network weights and vector embeddings, the developer steps into the role of cybernetic architect. Combining machine learning foundations with high-velocity prompt engineering to forge intelligent prototypes.',
     skills: [
@@ -22,11 +28,17 @@ const MOVIE_WORLDS = [
   {
     id: 'web-architecture',
     title: "THE ARCHITECT'S INCEPTION",
-    cinemaReference: 'Inception • Spider-Man: Into The Spider-Verse',
+    cinemaReference: 'Inception • Spider-Man • Complete MCU',
     genre: 'Urban Architectural / Kinetic Reality',
     accent: '#3b82f6',
-    accentGlow: 'rgba(59, 130, 246, 0.35)',
-    bgGradient: 'from-[#081224] via-[#060a14] to-[#050507]',
+    accentGlow: 'rgba(59, 130, 246, 0.4)',
+    bgGradient: 'from-[#081830] via-[#060e1c] to-[#050507]',
+    sceneImage: '/assets/movie-scenes/world-inception.jpg',
+    moviePosters: [
+      { title: 'Spider-Man', poster: '/posters_cache/spider-man.jpg' },
+      { title: 'Complete MCU', poster: '/posters_cache/complete-mcu.jpg' },
+      { title: 'Source Code', poster: '/posters_cache/source-code.jpg' }
+    ],
     tagline: 'Bending viewport dimensions and structuring modular component universes.',
     narrative: 'Like Inception’s dream architects folding skyscrapers in half, frontend engineering is the art of constructing seamless, responsive realities. Every DOM node, state tree, and layout transition is engineered to react with zero friction.',
     skills: [
@@ -43,8 +55,14 @@ const MOVIE_WORLDS = [
     cinemaReference: 'The Dark Knight • John Wick • Top Gun: Maverick',
     genre: 'High-Stakes Action / Cold Tactical Precision',
     accent: '#d4af37',
-    accentGlow: 'rgba(212, 175, 55, 0.35)',
-    bgGradient: 'from-[#181408] via-[#0c0a06] to-[#050507]',
+    accentGlow: 'rgba(212, 175, 55, 0.4)',
+    bgGradient: 'from-[#221c08] via-[#100d04] to-[#050507]',
+    sceneImage: '/assets/movie-scenes/world-darkknight.jpg',
+    moviePosters: [
+      { title: 'Top Gun: Maverick', poster: '/posters_cache/top-gun-maverick.jpg' },
+      { title: 'Mad Max: Fury Road', poster: '/posters_cache/mad-max-fury-road.jpg' },
+      { title: 'Southpaw', poster: '/posters_cache/southpaw.jpg' }
+    ],
     tagline: 'Raw compute velocity, memory pointers, and algorithmic discipline.',
     narrative: 'When mission success demands microsecond execution and surgical memory management, high-level abstractions yield to compiled languages and pure algorithmic combat. Built on relentless problem-solving and rigorous engineering.',
     skills: [
@@ -58,11 +76,17 @@ const MOVIE_WORLDS = [
   {
     id: 'art-direction',
     title: "THE AUTEUR'S PALETTE",
-    cinemaReference: 'The Grand Budapest Hotel (Wes Anderson) • Blade Runner 2049',
+    cinemaReference: 'The Grand Budapest Hotel • Blade Runner 2049 • Blue Jay',
     genre: 'Artistic Auteur / Color Theory & Symmetry',
     accent: '#e0705a',
-    accentGlow: 'rgba(224, 112, 90, 0.35)',
-    bgGradient: 'from-[#1a0e0c] via-[#0d0706] to-[#050507]',
+    accentGlow: 'rgba(224, 112, 90, 0.4)',
+    bgGradient: 'from-[#261410] via-[#120806] to-[#050507]',
+    sceneImage: '/assets/movie-scenes/origin-topgun.jpg',
+    moviePosters: [
+      { title: 'Blue Jay', poster: '/posters_cache/blue-jay.jpg' },
+      { title: 'Pretty Woman', poster: '/posters_cache/pretty-woman.jpg' },
+      { title: 'Notting Hill', poster: '/posters_cache/notting-hill.jpg' }
+    ],
     tagline: 'Cinema without color grading is footage; software without UX is code.',
     narrative: 'Software is felt before it is understood. Guided by Wes Anderson’s geometric symmetry and Denis Villeneuve’s atmospheric lighting, I infuse human psychology, high-contrast typography, and intentional palette harmony into every interface.',
     skills: [
@@ -84,15 +108,15 @@ export default function ActArsenal() {
       
       {/* Background Volumetric Glow tracking active movie color */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full blur-[200px] pointer-events-none transition-colors duration-1000 opacity-20"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full blur-[200px] pointer-events-none transition-colors duration-1000 opacity-25"
         style={{ backgroundColor: activeWorld.accent }}
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Act Eyebrow & Cinematic Narrative Intro */}
+        {/* Act Eyebrow & Theatrical Headline */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-700/60 text-zinc-300 text-xs font-mono tracking-[0.25em] uppercase mb-4 shadow-xl">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-700 text-zinc-300 text-xs font-mono tracking-[0.25em] uppercase mb-4 shadow-xl">
             <Film className="w-3.5 h-3.5 text-amber-400" />
             <span>Act II • The Cinematic Verse of Skills</span>
           </div>
@@ -107,12 +131,12 @@ export default function ActArsenal() {
             </span>
           </h2>
 
-          <p className="mt-4 text-xs sm:text-sm md:text-base text-zinc-400 font-sans leading-relaxed">
-            I visualize technical engineering through the lens of cinema genres. Step across four distinct movie sets—from cybernetic machine minds to architectural inception and ballistic code precision.
+          <p className="mt-4 text-xs sm:text-sm md:text-base text-zinc-300 font-sans leading-relaxed">
+            I visualize technical engineering through the lens of cinema genres. Step across four distinct movie sets with real visual backdrops, character aesthetics, and technical weapon classes.
           </p>
         </div>
 
-        {/* 4 Cinema Set Selectors (Interactive Tabs) */}
+        {/* 4 Cinema Set Selectors */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
           {MOVIE_WORLDS.map((world) => {
             const isActive = world.id === activeWorldId
@@ -123,7 +147,7 @@ export default function ActArsenal() {
                 className={`p-4 rounded-2xl text-left border transition-all duration-500 flex flex-col justify-between ${
                   isActive
                     ? 'bg-zinc-900/95 shadow-2xl scale-102'
-                    : 'bg-zinc-950/60 border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-900/40 opacity-70 hover:opacity-100'
+                    : 'bg-zinc-950/60 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900/40 opacity-70 hover:opacity-100'
                 }`}
                 style={{
                   borderColor: isActive ? world.accent : undefined,
@@ -131,7 +155,7 @@ export default function ActArsenal() {
                 }}
               >
                 <div>
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 block mb-1">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-zinc-400 block mb-1">
                     {world.genre.split('/')[0]}
                   </span>
                   <h4 
@@ -143,7 +167,7 @@ export default function ActArsenal() {
                 </div>
 
                 <div className="mt-4 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                  <span className="truncate text-zinc-500">{world.cinemaReference.split('•')[0]}</span>
+                  <span className="truncate text-zinc-400">{world.cinemaReference.split('•')[0]}</span>
                   <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isActive ? 'translate-x-1 text-white' : 'text-zinc-600'}`} />
                 </div>
               </button>
@@ -151,64 +175,107 @@ export default function ActArsenal() {
           })}
         </div>
 
-        {/* ========================================================================= */}
-        {/* ACTIVE MOVIE WORLD 3D STAGE & STORY PRESENTATION                          */}
-        {/* ========================================================================= */}
+        {/* ACTIVE MOVIE WORLD SHOWCASE WITH REAL POSTERS & SCENE IMAGES */}
         <div 
-          className={`bg-gradient-to-br ${activeWorld.bgGradient} border rounded-3xl p-6 sm:p-12 shadow-2xl transition-all duration-700 relative overflow-hidden`}
-          style={{ borderColor: `${activeWorld.accent}50` }}
+          className={`bg-gradient-to-br ${activeWorld.bgGradient} border-2 rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-700 relative overflow-hidden`}
+          style={{ borderColor: `${activeWorld.accent}70` }}
         >
-          {/* Top Film Reel Marker */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-1" style={{ color: activeWorld.accent }}>
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Cinematic Reference: {activeWorld.cinemaReference}</span>
+          {/* Subtle Scene Backdrop Watermark */}
+          {activeWorld.sceneImage && (
+            <div className="absolute inset-0 pointer-events-none opacity-20">
+              <img
+                src={activeWorld.sceneImage}
+                alt={activeWorld.title}
+                className="w-full h-full object-cover object-center filter contrast-125"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80" />
+            </div>
+          )}
+
+          <div className="relative z-10">
+            {/* Top Film Reel Marker */}
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-1 font-bold" style={{ color: activeWorld.accent }}>
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Cinematic Inspiration: {activeWorld.cinemaReference}</span>
+                </div>
+                <h3 className="text-2xl sm:text-4xl font-serif font-black text-white uppercase tracking-wide">
+                  {activeWorld.title}
+                </h3>
               </div>
-              <h3 className="text-2xl sm:text-4xl font-serif font-black text-white uppercase tracking-wide">
-                {activeWorld.title}
-              </h3>
+
+              <span className="px-3.5 py-1.5 rounded-full bg-black/80 border-2 text-xs font-mono uppercase font-bold tracking-wider" style={{ borderColor: activeWorld.accent, color: activeWorld.accent }}>
+                {activeWorld.genre}
+              </span>
             </div>
 
-            <span className="px-3.5 py-1.5 rounded-full bg-black/70 border text-xs font-mono uppercase font-bold tracking-wider" style={{ borderColor: activeWorld.accent, color: activeWorld.accent }}>
-              {activeWorld.genre}
-            </span>
-          </div>
-
-          {/* Narrative Story Box */}
-          <div className="mb-10 max-w-3xl">
-            <blockquote className="border-l-4 pl-4 text-base sm:text-lg font-serif italic text-zinc-200 mb-4" style={{ borderColor: activeWorld.accent }}>
-              "{activeWorld.tagline}"
-            </blockquote>
-            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
-              {activeWorld.narrative}
-            </p>
-          </div>
-
-          {/* Deployed Skills Array within this Movie World */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {activeWorld.skills.map((skill, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-xl bg-black/50 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between group hover:translate-x-1"
-              >
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-sm font-mono font-bold text-white group-hover:text-amber-200 transition-colors">
-                    {skill.name}
-                  </span>
-                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: activeWorld.accent }} />
-                </div>
-                <p className="text-xs text-zinc-400 leading-normal font-sans">
-                  {skill.desc}
+            {/* Split: Narrative & Real Movie Poster Gallery */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10 items-center">
+              
+              {/* Narrative Story Box */}
+              <div className="lg:col-span-8">
+                <blockquote className="border-l-4 pl-4 text-base sm:text-lg font-serif italic text-zinc-100 mb-4 py-1" style={{ borderColor: activeWorld.accent }}>
+                  "{activeWorld.tagline}"
+                </blockquote>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+                  {activeWorld.narrative}
                 </p>
               </div>
-            ))}
-          </div>
 
-          {/* Bottom Production Footer */}
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-500">
-            <span>Visualized as Cinema • Written in Code</span>
-            <span style={{ color: activeWorld.accent }}>Status: Active In Shravan's Arsenal</span>
+              {/* Real Movie Poster Cards Tilted in 3D */}
+              <div className="lg:col-span-4 flex items-center justify-center gap-2 sm:gap-3 perspective-[800px]">
+                {activeWorld.moviePosters.map((mp, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      transform: `rotateY(${(i - 1) * 12}deg) translateZ(${i === 1 ? 25 : 0}px)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                    className={`relative w-24 sm:w-28 aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 transition-transform duration-300 hover:scale-110 hover:z-30 ${
+                      i === 1 ? 'border-amber-400 shadow-amber-400/30' : 'border-zinc-700'
+                    }`}
+                  >
+                    <img
+                      src={mp.poster}
+                      alt={mp.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-1.5 flex flex-col justify-end text-[9px] font-mono text-white font-bold leading-none">
+                      {mp.title}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* Deployed Skills Array */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {activeWorld.skills.map((skill, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-2xl bg-black/70 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between group hover:translate-x-1"
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-sm font-mono font-bold text-white group-hover:text-amber-200 transition-colors">
+                      {skill.name}
+                    </span>
+                    <span className="w-2.5 h-2.5 rounded-full shadow-lg" style={{ backgroundColor: activeWorld.accent, boxShadow: `0 0 10px ${activeWorld.accent}` }} />
+                  </div>
+                  <p className="text-xs text-zinc-400 leading-normal font-sans">
+                    {skill.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Production Footer */}
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+              <span>Visualized as Cinema • Engineered in Code</span>
+              <span className="font-bold" style={{ color: activeWorld.accent }}>Battle-Tested Technical Arsenal</span>
+            </div>
+
           </div>
 
         </div>

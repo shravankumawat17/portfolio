@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { GraduationCap, Award, BookOpen, Compass, Sparkles, Clapperboard, Check } from 'lucide-react'
+import { GraduationCap, Award, BookOpen, Compass, Sparkles, Clapperboard, Plane, Star } from 'lucide-react'
 import resumeData from '../../content/resume.json'
 
 export default function ActOrigin() {
   const { education } = resumeData
   const [counts, setCounts] = useState({ cgpa: 0, percentile: 0 })
   const [clapped, setClapped] = useState(false)
-  const [statTilt, setStatTilt] = useState({ x: 0, y: 0 })
 
   // Stat counter roll-up animation
   useEffect(() => {
@@ -46,50 +45,70 @@ export default function ActOrigin() {
   }
 
   return (
-    <div className="relative py-24 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none">
-      {/* Cinematic Steel Blue Volumetric Light */}
-      <div className="absolute top-1/2 -left-32 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[160px] pointer-events-none" />
+    <div className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#06080d]">
+      
+      {/* Real Cinematic Movie Backdrop (Top Gun flight theme) */}
+      <div className="absolute inset-0 pointer-events-none opacity-25">
+        <img
+          src="/assets/movie-scenes/origin-topgun.jpg"
+          alt="Top Gun Origin Theme Backdrop"
+          className="w-full h-full object-cover object-top filter contrast-125 saturate-120"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06080d] via-[#06080d]/80 to-[#06080d]" />
+      </div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Act Header with 3D Clapperboard Trigger */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-blue-500 animate-ping" />
-            <span className="text-xs font-mono tracking-[0.3em] uppercase text-blue-400 font-bold">
-              Act I • The Origin Story
+            <span className="flex h-3 w-3 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+            </span>
+            <span className="text-xs font-mono tracking-[0.3em] uppercase text-sky-400 font-bold">
+              Act I • The Origin Story (Cinematic Flight Academy)
             </span>
           </div>
 
-          {/* Interactive 3D Clapperboard Button */}
+          {/* Interactive Clapperboard */}
           <button
             onClick={triggerClap}
-            className="self-start sm:self-auto flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-blue-500/40 hover:border-blue-400 text-blue-300 text-xs font-mono uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-lg group"
-            title="Click to clap the cinema clapperboard"
+            className="self-start sm:self-auto flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-sky-500/40 hover:border-sky-400 text-sky-300 text-xs font-mono uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-lg backdrop-blur-md group"
           >
-            <Clapperboard className={`w-4 h-4 text-blue-400 transition-transform duration-300 ${clapped ? '-rotate-45' : 'group-hover:-rotate-12'}`} />
-            <span>{clapped ? 'ACTION! TAKE 1' : 'Clap Slate (Take 1)'}</span>
+            <Clapperboard className={`w-4 h-4 text-sky-400 transition-transform duration-300 ${clapped ? '-rotate-45' : 'group-hover:-rotate-12'}`} />
+            <span>{clapped ? 'ACTION! ROLL CAMERAS' : 'Clap Slate (Scene 1)'}</span>
           </button>
         </div>
 
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-black text-white uppercase tracking-tight">
-          FOUNDATIONS & ACADEMIC <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-blue-500">DISCIPLINE</span>
-        </h2>
+        {/* Theatrical Headline */}
+        <div className="max-w-3xl mb-12">
+          <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-bold block mb-2">
+            The Hero's Awakening • Intellectual Training
+          </span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-black text-white uppercase tracking-tight leading-tight">
+            TOP GUN MERIT & <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-indigo-400">
+              ACADEMIC PRECISION
+            </span>
+          </h2>
+          <p className="mt-4 text-xs sm:text-sm md:text-base text-zinc-300 font-sans leading-relaxed">
+            Every superhero origin begins with intense mental discipline. Competing against millions nationwide to earn an elite standing at Mumbai's prestigious Dwarkadas J. Sanghvi College of Engineering.
+          </p>
+        </div>
 
-        {/* 3D Institution Slate & Holographic Stat Pedestals */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Feature Grid: Institution & Visual Stat Pedestals */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Main Institution Slate with 3D Border Glow */}
-          <div className="lg:col-span-7 bg-gradient-to-br from-zinc-950 via-[#0a0f18] to-zinc-950 border border-blue-500/30 rounded-3xl p-6 sm:p-10 backdrop-blur-md shadow-2xl relative overflow-hidden flex flex-col justify-between group hover:border-blue-400/60 transition-all duration-500">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-
+          {/* Main Institution Card with Visual Badge */}
+          <div className="lg:col-span-7 bg-gradient-to-br from-zinc-950/90 via-[#081220]/90 to-zinc-950/90 border border-sky-500/40 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl relative overflow-hidden flex flex-col justify-between group hover:border-sky-400 transition-all duration-500">
             <div>
-              <div className="flex items-center justify-between text-zinc-500 text-xs font-mono uppercase mb-6">
-                <span className="flex items-center gap-2 text-blue-400 font-bold bg-blue-950/60 px-3 py-1 rounded-full border border-blue-800/60">
+              <div className="flex items-center justify-between text-zinc-400 text-xs font-mono uppercase mb-6">
+                <span className="flex items-center gap-2 text-sky-400 font-bold bg-sky-950/80 px-3 py-1 rounded-full border border-sky-800">
                   <GraduationCap className="w-4 h-4" />
-                  B.Tech Engineering
+                  B.Tech Engineering Base
                 </span>
-                <span className="bg-zinc-900 px-3 py-1 rounded-full border border-zinc-800 text-zinc-300 font-semibold">
+                <span className="bg-zinc-900 px-3 py-1 rounded-full border border-zinc-700 text-zinc-200 font-bold">
                   {education.duration}
                 </span>
               </div>
@@ -98,69 +117,65 @@ export default function ActOrigin() {
                 {education.institution}
               </h3>
 
-              <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-950/40 border border-blue-500/30 text-blue-300 font-mono text-sm">
-                <Sparkles className="w-4 h-4 text-blue-400" />
+              <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-sky-950/60 border border-sky-500/40 text-sky-300 font-mono text-sm">
+                <Sparkles className="w-4 h-4 text-sky-400" />
                 <span>{education.degree}</span>
               </div>
 
-              <div className="h-[1px] w-full bg-zinc-800/80 my-6" />
+              <div className="h-[1px] w-full bg-white/10 my-6" />
 
-              <p className="text-sm text-zinc-400 leading-relaxed font-sans">
-                Grounded in algorithmic rigor, discrete mathematical models, and machine learning foundations. Combining structured engineering coursework with high-frequency project development to transform ideas into tangible software.
+              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+                Trained in the core pillars of artificial intelligence: neural networks, computational complexity, linear algebra, and data architecture. Designed to transition smoothly from mathematical research to high-performance real-world deployment.
               </p>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-zinc-900 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
-              <span className="flex items-center gap-1.5 text-zinc-300">
-                <Compass className="w-3.5 h-3.5 text-blue-400" />
-                Location: {education.location}
+            <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+              <span className="flex items-center gap-1.5 text-zinc-200">
+                <Compass className="w-3.5 h-3.5 text-sky-400" />
+                Mumbai, Maharashtra, India
               </span>
-              <span className="text-blue-400 font-semibold">Specialization: Machine Learning & Intelligence Systems</span>
+              <span className="text-sky-400 font-bold">Specialty: Machine Intelligence & Systems</span>
             </div>
           </div>
 
-          {/* 3D Holographic Stat Pedestals */}
+          {/* Visual Stat Counters */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-6">
             
-            {/* 3D Stat Pedestal 1: Combined CGPA */}
-            <div 
-              className="flex-1 bg-gradient-to-br from-zinc-950 via-[#0a0f1a] to-zinc-950 border border-blue-500/40 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group hover:border-blue-400 hover:shadow-[0_0_40px_rgba(59,110,165,0.3)] transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-blue-400 font-bold mb-2">
-                <span>Academic Distinction</span>
-                <span className="px-2 py-0.5 rounded bg-blue-950/80 border border-blue-800 text-[10px]">Sem 1 & 2 Combined</span>
+            {/* Stat 1: 9.00 CGPA */}
+            <div className="flex-1 bg-gradient-to-br from-zinc-950/95 via-[#0c1828]/90 to-zinc-950/95 border-2 border-sky-500/50 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group hover:border-sky-400 hover:shadow-[0_0_40px_rgba(56,189,248,0.3)] transition-all duration-300">
+              <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-sky-400 font-bold mb-2">
+                <span>Flight Telemetry 01</span>
+                <span className="px-2 py-0.5 rounded bg-sky-950 border border-sky-800 text-[10px]">Academic Distinction</span>
               </div>
 
               <div className="flex items-baseline gap-3 my-2">
-                <span className="text-6xl sm:text-7xl font-serif font-black text-white tracking-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
+                <span className="text-6xl sm:text-7xl font-serif font-black text-white tracking-tight drop-shadow-lg">
                   {counts.cgpa}
                 </span>
-                <span className="text-blue-400/80 font-mono text-xl font-bold">/ 10.00 CGPA</span>
+                <span className="text-sky-400 font-mono text-xl font-bold">/ 10.00 CGPA</span>
               </div>
 
-              <p className="text-xs sm:text-sm text-zinc-400 font-sans mt-2 leading-normal">
-                Perfect 9.00 combined grade point average achieved across first-year engineering curriculum.
+              <p className="text-xs sm:text-sm text-zinc-300 font-sans mt-2">
+                Combined Semester 1 & 2 Grade Point Average at DJ Sanghvi College of Engineering.
               </p>
             </div>
 
-            {/* 3D Stat Pedestal 2: JEE Main Percentile */}
-            <div 
-              className="flex-1 bg-gradient-to-br from-zinc-950 via-[#161208] to-zinc-950 border border-amber-500/40 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group hover:border-amber-400 hover:shadow-[0_0_40px_rgba(212,175,55,0.25)] transition-all duration-300 transform hover:-translate-y-1"
-            >
+            {/* Stat 2: 97.93%ile */}
+            <div className="flex-1 bg-gradient-to-br from-zinc-950/95 via-[#201808]/90 to-zinc-950/95 border-2 border-amber-500/50 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group hover:border-amber-400 hover:shadow-[0_0_40px_rgba(245,158,11,0.3)] transition-all duration-300">
               <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-amber-400 font-bold mb-2">
-                <span>Competitive Merit</span>
-                <span className="px-2 py-0.5 rounded bg-amber-950/80 border border-amber-800 text-[10px]">Top 2% Nationwide</span>
+                <span>Flight Telemetry 02</span>
+                <span className="px-2 py-0.5 rounded bg-amber-950 border border-amber-800 text-[10px]">National Top 2%</span>
               </div>
 
               <div className="flex items-baseline gap-3 my-2">
-                <span className="text-6xl sm:text-7xl font-serif font-black text-white tracking-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
+                <span className="text-6xl sm:text-7xl font-serif font-black text-white tracking-tight drop-shadow-lg">
                   {counts.percentile}
                 </span>
-                <span className="text-amber-400 font-mono text-xl font-bold">%ile</span>
+                <span className="text-amber-400 font-mono text-xl font-bold">%ile JEE Main</span>
               </div>
 
-              <p className="text-xs sm:text-sm text-zinc-400 font-sans mt-2 leading-normal">
-                Scored 97.93 percentile among over 1.2 million candidates in JEE Main national engineering exam.
+              <p className="text-xs sm:text-sm text-zinc-300 font-sans mt-2">
+                Scored 97.93 percentile among over 1.2 million engineering candidates across India.
               </p>
             </div>
 

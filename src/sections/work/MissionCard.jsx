@@ -2,6 +2,13 @@ import React, { useState, useRef } from 'react'
 import { ExternalLink, Clapperboard, Sparkles, Layers, CheckCircle2, RotateCw, Terminal, Cpu } from 'lucide-react'
 import { GithubIcon } from '../../components/SocialIcons'
 
+const PROJECT_POSTERS = {
+  'goal-tracker': '/posters_cache/mad-max-fury-road.jpg',
+  'ai-voice-therapist': '/assets/movie-scenes/project-therapist.jpg',
+  'hommies-ecommerce': '/posters_cache/pretty-woman.jpg',
+  'pinterest-app': '/posters_cache/spider-man.jpg'
+}
+
 export default function MissionCard({ project, index }) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
@@ -25,9 +32,11 @@ export default function MissionCard({ project, index }) {
     setTilt({ x: 0, y: 0 })
   }
 
+  const posterImg = PROJECT_POSTERS[project.id] || '/posters_cache/deadpool.jpg'
+
   return (
     <div 
-      className="relative min-h-[540px] perspective-[1200px] select-none"
+      className="relative min-h-[580px] perspective-[1200px] select-none"
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -46,10 +55,10 @@ export default function MissionCard({ project, index }) {
         className="relative w-full h-full rounded-3xl"
       >
         
-        {/* ==================== FRONT FACE: CINEMATIC LOBBY CARD ==================== */}
+        {/* ==================== FRONT FACE: CINEMATIC LOBBY CARD WITH REAL VISUAL POSTER ==================== */}
         <div 
           style={{ backfaceVisibility: 'hidden' }}
-          className="absolute inset-0 w-full h-full bg-gradient-to-br from-zinc-950 via-[#0c0c14] to-zinc-950 border border-zinc-800 hover:border-zinc-600 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8 flex flex-col justify-between"
+          className="absolute inset-0 w-full h-full bg-gradient-to-br from-zinc-950 via-[#0c0c16] to-zinc-950 border-2 border-zinc-800 hover:border-zinc-500 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8 flex flex-col justify-between"
         >
           {/* Top Cinema Accent Bar */}
           <div 
@@ -59,7 +68,7 @@ export default function MissionCard({ project, index }) {
 
           <div>
             {/* Header Eyebrow */}
-            <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-zinc-500 mb-3">
+            <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-zinc-400 mb-4">
               <span className="flex items-center gap-1.5 font-bold" style={{ color: project.accent }}>
                 <Clapperboard className="w-4 h-4" />
                 Mission 0{index + 1} • {project.genre}
@@ -74,34 +83,51 @@ export default function MissionCard({ project, index }) {
               </button>
             </div>
 
-            {/* Titles */}
-            <div className="text-[11px] font-mono tracking-[0.25em] text-zinc-500 uppercase mt-2">
-              Theatrical Title: {project.cinematicTitle}
+            {/* Split: Visual Movie Poster Banner & Titles */}
+            <div className="flex gap-4 sm:gap-6 items-start mb-4">
+              {/* Real Visual Poster Thumbnail */}
+              <div className="relative w-20 sm:w-24 aspect-[2/3] rounded-xl overflow-hidden shadow-xl border-2 border-white/20 shrink-0">
+                <img
+                  src={posterImg}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              </div>
+
+              <div>
+                <div className="text-[10px] font-mono tracking-[0.25em] text-amber-400 uppercase font-bold">
+                  Theatrical Premiere: {project.cinematicTitle}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-black text-white tracking-wide mt-1 leading-tight">
+                  {project.title}
+                </h3>
+                <span className="inline-block mt-2 px-2.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-400">
+                  {project.status}
+                </span>
+              </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-serif font-black text-white tracking-wide mt-1">
-              {project.title}
-            </h3>
 
             {/* Approved Movie Logline */}
             <blockquote 
-              className="my-4 pl-3.5 border-l-2 text-sm sm:text-base font-serif italic text-zinc-200 leading-relaxed bg-zinc-900/50 py-2.5 rounded-r-xl"
+              className="my-3 pl-3.5 border-l-4 text-xs sm:text-sm font-serif italic text-zinc-200 leading-relaxed bg-zinc-900/60 py-2.5 rounded-r-xl"
               style={{ borderColor: project.accent }}
             >
               "{project.logline}"
             </blockquote>
 
             {/* Synopsis */}
-            <p className="text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed mt-3">
+            <p className="text-xs text-zinc-300 font-sans leading-relaxed mt-2 line-clamp-3">
               {project.description}
             </p>
 
             {/* Key Features */}
             {project.metrics && (
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-1.5">
                 {project.metrics.map((m) => (
                   <span 
                     key={m} 
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300"
+                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-zinc-900/90 border border-zinc-800 text-[10px] font-mono text-zinc-300"
                   >
                     <CheckCircle2 className="w-3 h-3 text-amber-400" />
                     {m}
@@ -112,16 +138,16 @@ export default function MissionCard({ project, index }) {
           </div>
 
           {/* Cast & CTAs */}
-          <div className="mt-6 pt-5 border-t border-zinc-900">
-            <div className="mb-4">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block mb-2">
-                Cast (Tech Stack):
+          <div className="mt-4 pt-4 border-t border-zinc-900">
+            <div className="mb-3">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 block mb-1.5 font-bold">
+                Starring Cast (Tech Stack):
               </span>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-1">
                 {project.cast.map((actor) => (
                   <span
                     key={actor}
-                    className="px-2.5 py-0.5 rounded-md bg-zinc-900/90 border border-zinc-800 text-[11px] font-mono text-zinc-300"
+                    className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-300"
                   >
                     {actor}
                   </span>
@@ -134,7 +160,7 @@ export default function MissionCard({ project, index }) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-300 hover:text-white transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>Source Code</span>
@@ -143,9 +169,9 @@ export default function MissionCard({ project, index }) {
               <button
                 onClick={() => setIsFlipped(true)}
                 style={{ borderColor: project.accent, color: project.accent }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-mono font-bold uppercase tracking-wider bg-zinc-950 hover:bg-zinc-900 transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-mono font-bold uppercase tracking-wider bg-zinc-950 hover:bg-zinc-900 transition-all shadow"
               >
-                <span>View Specs</span>
+                <span>Blueprint 3D</span>
                 <RotateCw className="w-3 h-3" />
               </button>
             </div>
@@ -160,7 +186,7 @@ export default function MissionCard({ project, index }) {
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)'
           }}
-          className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#080d14] via-[#05070a] to-[#0d0912] border-2 border-cyan-500/50 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8 flex flex-col justify-between"
+          className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#080f1a] via-[#05080e] to-[#0c0814] border-2 border-cyan-500/60 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8 flex flex-col justify-between"
         >
           {/* Top Blueprint Bar */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400" />
@@ -207,7 +233,7 @@ export default function MissionCard({ project, index }) {
             </div>
           </div>
 
-          <div className="pt-6 border-t border-cyan-900/60 flex items-center justify-between">
+          <div className="pt-4 border-t border-cyan-900/60 flex items-center justify-between">
             <a
               href={project.github}
               target="_blank"
