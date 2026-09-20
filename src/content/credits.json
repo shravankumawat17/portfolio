@@ -1,0 +1,64 @@
+{
+  "starring": {
+    "name": "Shravan Kumawat",
+    "role": "Lead Architect • Creator • Problem Solver",
+    "image": "/assets/shravan-deadpool-starring.jpg",
+    "quote": "Building digital realities with technical grit and cinematic wonder.",
+    "characterAlias": "The Code & Design Vigilante"
+  },
+  "directorNote": {
+    "title": "DIRECTOR'S STATEMENT",
+    "lead": "I build digital products because I love the craft of transforming an abstract idea into something tangible, usable, and visually memorable.",
+    "philosophy": [
+      "Technology is most compelling when it feels human and effortless.",
+      "Clean architecture is the backbone; intuitive design is the soul.",
+      "Never stop building, questioning, and pushing boundaries."
+    ]
+  },
+  "castAndCrew": [
+    {
+      "role": "Core Disciplines",
+      "talents": ["Artificial Intelligence", "Frontend Engineering", "Product Design", "Rapid Prototyping"]
+    },
+    {
+      "role": "Also Featuring (Interests & Creative Pursuits)",
+      "talents": ["AI & Product Development", "UI/UX & Creative Concepting", "Tech Startups", "Culinary Arts & Cooking", "Singing & Musical Expression"]
+    },
+    {
+      "role": "Special Thanks",
+      "talents": ["Mentors & Professors at DJ Sanghvi", "Open-Source Community", "The Art of Cinema & Storytelling"]
+    }
+  ],
+  "awards": [
+    {
+      "title": "JEE Main 97.93 Percentile",
+      "laurel": "National Top Tier",
+      "year": "2025",
+      "category": "All India Engineering Honors"
+    },
+    {
+      "title": "Combined CGPA 9.00",
+      "laurel": "Academic Distinction",
+      "year": "2025-2026",
+      "category": "Dwarkadas J. Sanghvi College of Engineering"
+    },
+    {
+      "title": "Case-Study Competition Finalist",
+      "laurel": "Product Strategy",
+      "year": "2025",
+      "category": "Strategic Problem Solving"
+    }
+  ],
+  "distribution": {
+    "title": "DISTRIBUTED BY / GET IN TOUCH",
+    "subtitle": "Ready for high-impact engineering, product development, or design collaboration.",
+    "channels": {
+      "email": "shravankumawat817@gmail.com",
+      "phone": "+91 7709796150",
+      "location": "Mumbai, Maharashtra, India",
+      "github": "https://github.com/shravankumawat17",
+      "linkedin": "https://linkedin.com/in/shravan-kumawat-a31085271",
+      "resumeUrl": "/assets/Shravan_Kumawat_Resume.pdf"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "profile": {
+    "name": "Shravan Kumawat",
+    "title": "B.Tech Student in Artificial Intelligence & Data Science",
+    "headline": "Combining technical precision, AI development, and cinematic UI/UX design.",
+    "location": "Mumbai, India",
+    "email": "shravankumawat817@gmail.com",
+    "phone": "+91 7709796150",
+    "github": "https://github.com/shravankumawat17",
+    "linkedin": "https://linkedin.com/in/shravan-kumawat-a31085271",
+    "bio": "B.Tech student in Artificial Intelligence & Data Science with a strong passion for AI products, software development, UI/UX and startup building. Enjoys combining creativity with development to turn ideas into practical digital products. Interested in learning by building and exploring the intersection of technology, design and business."
+  },
+  "education": {
+    "institution": "Dwarkadas J. Sanghvi College of Engineering",
+    "degree": "B.Tech in Artificial Intelligence & Data Science",
+    "duration": "2025 – 2029",
+    "location": "Mumbai, India",
+    "stats": [
+      {
+        "label": "Combined CGPA",
+        "value": "9.00",
+        "detail": "Sem 1 & Sem 2 Combined"
+      },
+      {
+        "label": "JEE Main",
+        "value": "97.93",
+        "unit": "%ile",
+        "detail": "Top 2% Nationwide Rank"
+      },
+      {
+        "label": "Curriculum Focus",
+        "value": "AI & DS",
+        "detail": "Algorithms & Neural Foundations"
+      }
+    ]
+  },
+  "skills": {
+    "categories": [
+      {
+        "id": "programming",
+        "title": "Programming Arsenal",
+        "icon": "Code2",
+        "accent": "#d4af37",
+        "description": "Core algorithmic and systems engineering languages",
+        "items": [
+          { "name": "C", "level": "Advanced" },
+          { "name": "C++", "level": "Advanced" },
+          { "name": "Java", "level": "Proficient" },
+          { "name": "Python", "level": "Advanced" },
+          { "name": "JavaScript (ES6+)", "level": "Proficient" }
+        ]
+      },
+      {
+        "id": "web",
+        "title": "Web Architecture",
+        "icon": "Globe",
+        "accent": "#2f7de1",
+        "description": "Modern frontend layout engines and component frameworks",
+        "items": [
+          { "name": "HTML5", "level": "Expert" },
+          { "name": "CSS3", "level": "Expert" },
+          { "name": "React", "level": "Proficient" },
+          { "name": "Responsive Layouts", "level": "Expert" },
+          { "name": "Tailwind CSS", "level": "Proficient" }
+        ]
+      },
+      {
+        "id": "ai-data",
+        "title": "AI & Machine Intelligence",
+        "icon": "Cpu",
+        "accent": "#2fa89a",
+        "description": "Applied ML concepts, generative pipelines, and prompt crafts",
+        "items": [
+          { "name": "Machine Learning Fundamentals", "level": "Proficient" },
+          { "name": "Prompt Engineering", "level": "Advanced" },
+          { "name": "AI APIs & Tooling", "level": "Proficient" },
+          { "name": "Data Analytics Foundations", "level": "Proficient" }
+        ]
+      },
+      {
+        "id": "tools",
+        "title": "Developer Toolbelt",
+        "icon": "Wrench",
+        "accent": "#e0705a",
+        "description": "Version control, IDE environments, and collaborative workflows",
+        "items": [
+          { "name": "Git", "level": "Proficient" },
+          { "name": "GitHub", "level": "Proficient" },
+          { "name": "VS Code", "level": "Expert" },
+          { "name": "IntelliJ IDEA", "level": "Proficient" },
+          { "name": "Linux Shell", "level": "Intermediate" }
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Design & Direction",
+        "icon": "Palette",
+        "accent": "#8a6fd4",
+        "description": "Visual aesthetics, wireframing, and cinema UX/UI",
+        "items": [
+          { "name": "UI/UX Fundamentals", "level": "Proficient" },
+          { "name": "Figma", "level": "Proficient" },
+          { "name": "Canva", "level": "Expert" },
+          { "name": "Visual Design & Composition", "level": "Proficient" },
+          { "name": "Presentation Design", "level": "Advanced" }
+        ]
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "goal-tracker",
+      "title": "Goal-Based Progress Tracker",
+      "cinematicTitle": "THE DAILY ODYSSEY",
+      "logline": "A hero tracks his daily battles — one streak, one habit, one small win at a time.",
+      "accent": "#2f7de1",
+      "genre": "Productivity / Analytical Dashboard",
+      "duration": "Feature Web Application",
+      "description": "Productivity web application that tracks daily goals and maintains an immutable history of completed tasks. Provides a rich dashboard with completion trends, streak analytics, consistency metrics, and progress summaries to help users understand their velocity and stay accountable.",
+      "cast": ["React", "JavaScript", "HTML5/CSS3", "Local Storage", "Analytics Engine"],
+      "metrics": ["Streak Engine", "Historical Visualizer", "Zero-Latency Local Persistence"],
+      "github": "https://github.com/shravankumawat17",
+      "liveDemo": "#",
+      "status": "Production Prototype"
+    },
+    {
+      "id": "ai-voice-therapist",
+      "title": "AI Voice Therapist — Conversational Support Prototype",
+      "cinematicTitle": "THE LISTENER",
+      "logline": "When words are hard to say out loud, someone — something — is finally listening.",
+      "accent": "#2fa89a",
+      "genre": "Speech AI / Mental Wellness Prototype",
+      "duration": "Interactive Conversational Experience",
+      "description": "AI voice-based conversational assistant designed for empathetic, supportive one-to-one interactions. Combines speech recognition, conversation context modeling, and emotion-aware response synthesis. Built around therapist-informed conversational principles and structured mental-wellness knowledge to provide a judgment-free sounding board.",
+      "cast": ["Speech Recognition", "Emotion-Aware Prompting", "Speech Synthesis", "LLM APIs", "Web Audio API"],
+      "metrics": ["Real-Time Voice Loop", "Therapist-Informed Guidelines", "Context Memory"],
+      "github": "https://github.com/shravankumawat17",
+      "liveDemo": "#",
+      "status": "Interactive Prototype"
+    },
+    {
+      "id": "hommies-ecommerce",
+      "title": "Hommie's — E-Commerce Platform",
+      "cinematicTitle": "NATURE'S FORMULA",
+      "logline": "A skincare empire built from scratch, one clean line of code at a time.",
+      "accent": "#6fae66",
+      "genre": "Botanical Retail / E-Commerce",
+      "duration": "Full Frontend Commerce Storefront",
+      "description": "Full frontend e-commerce website for a bespoke skincare brand, built with modular HTML, CSS and JavaScript. Includes catalog browsing, category filtering, responsive product view modals, dynamic cart drawer with quantity toggles, and persistent checkout workflows.",
+      "cast": ["HTML5", "CSS3 Modern Layouts", "JavaScript", "Cart State Engine", "Responsive UI"],
+      "metrics": ["Dynamic Cart Drawer", "Instant Product Search", "Zero-Dependency Vanilla Architecture"],
+      "github": "https://github.com/shravankumawat17",
+      "liveDemo": "#",
+      "status": "Live Storefront"
+    },
+    {
+      "id": "pinterest-app",
+      "title": "Pinterest-Style Web Application",
+      "cinematicTitle": "THE ENDLESS CANVAS",
+      "logline": "A world of images, endlessly discoverable — built for the scroll that never wants to end.",
+      "accent": "#e0705a",
+      "genre": "Visual Discovery / Masonry Media Grid",
+      "duration": "Social Discovery Application",
+      "description": "Social-image discovery web application inspired by visual bookmarking platforms. Features an adaptive masonry layout, responsive image cards, modal inspect, collection tagging, and a component-based frontend architecture ready for backend API integration.",
+      "cast": ["React", "CSS Masonry Grid", "Responsive Design", "Component Architecture"],
+      "metrics": ["Dynamic Staggered Grid", "Inspect Modal", "Fluid Smooth-Scrolling"],
+      "github": "https://github.com/shravankumawat17",
+      "liveDemo": "#",
+      "status": "Application Prototype"
+    }
+  ],
+  "training": [
+    {
+      "title": "UI/UX Design Specialization",
+      "issuer": "IBM",
+      "status": "Pursuing",
+      "badge": "Design Excellence"
+    },
+    {
+      "title": "Linux Fundamentals & Systems",
+      "issuer": "Open Source",
+      "status": "Pursuing",
+      "badge": "CLI Mastery"
+    },
+    {
+      "title": "Machine Learning Foundations",
+      "issuer": "Curriculum & Projects",
+      "status": "Completed",
+      "badge": "AI Core"
+    },
+    {
+      "title": "Data Structures & Algorithms",
+      "issuer": "Academic Honors",
+      "status": "Completed",
+      "badge": "DSA"
+    },
+    {
+      "title": "Database Management Systems (DBMS)",
+      "issuer": "Academic Core",
+      "status": "Completed",
+      "badge": "Relational Data"
+    }
+  ]
+}
