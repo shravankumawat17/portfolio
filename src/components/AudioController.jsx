@@ -1,59 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Volume2, VolumeX } from 'lucide-react'
+import cinemaAudio from '../utils/cinemaAudio'
 
 export default function AudioController() {
   const [isPlaying, setIsPlaying] = useState(false)
-  const audioCtxRef = useRef(null)
-  const gainNodeRef = useRef(null)
-  const oscRef = useRef(null)
-
-  const toggleAudio = () => {
-    if (!isPlaying) {
-      try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext
-        const ctx = new AudioContext()
-        audioCtxRef.current = ctx
-
-        // Gentle projector hum oscillator
-        const osc = ctx.createOscillator()
-        const filter = ctx.createBiquadFilter()
-        const gain = ctx.createGain()
-
-        osc.type = 'triangle'
-        osc.frequency.setValueAtTime(60, ctx.currentTime) // 60Hz projector electrical hum
-
-        filter.type = 'lowpass'
-        filter.frequency.setValueAtTime(140, ctx.currentTime)
-
-        // Very soft volume
-        gain.gain.setValueAtTime(0.015, ctx.currentTime)
-
-        osc.connect(filter)
-        filter.connect(gain)
-        gain.connect(ctx.destination)
-
-        osc.start()
-        oscRef.current = osc
-        gainNodeRef.current = gain
-        setIsPlaying(true)
-      } catch (e) {
-        console.warn('Web Audio API not supported', e)
-      }
-    } else {
-      if (audioCtxRef.current) {
-        audioCtxRef.current.close()
-      }
-      setIsPlaying(false)
-    }
-  }
 
   useEffect(() => {
-    return () => {
-      if (audioCtxRef.current) {
-        audioCtxRef.current.close()
+    setIsPlaying(cinemaAudio.isPlayingBgm && !cinemaAudio.isMuted)
+
+    const handleStateChange = (e) => {
+      if (e && e.detail) {
+        setIsPlaying(e.detail.isPlaying)
       }
     }
+
+    window.addEventListener('cinema-audio-state', handleStateChange)
+    return () => window.removeEventListener('cinema-audio-state', handleStateChange)
   }, [])
+
+  const toggleAudio = () => {
+    cinemaAudio.toggleSound()
+  }
+
 
   return (
     <button

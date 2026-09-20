@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { FastForward, Volume2 } from 'lucide-react'
+import cinemaAudio from '../../utils/cinemaAudio'
 
 export default function CountdownLeader({ onComplete }) {
   const [count, setCount] = useState(8)
@@ -92,40 +93,10 @@ export default function CountdownLeader({ onComplete }) {
     whiteNoise.start(now)
   }
 
-  // Preload and manage Marvel Studios Intro Theme Audio
-  const marvelAudioRef = useRef(null)
-
-  useEffect(() => {
-    try {
-      const audio = new Audio('/assets/marvel-intro.mp4')
-      audio.preload = 'auto'
-      audio.volume = 0.85
-      marvelAudioRef.current = audio
-      window.__portfolioMarvelAudio = audio
-    } catch (e) {
-      console.warn('Could not initialize Marvel Audio', e)
-    }
-
-    return () => {
-      if (marvelAudioRef.current) {
-        marvelAudioRef.current.pause()
-      }
-    }
-  }, [])
-
-  // Function to play Marvel Studios intro theme (with synthesized fanfare fallback)
+  // Function to play Marvel Studios intro theme
   const playMarvelIntroTheme = () => {
-    if (marvelAudioRef.current) {
-      marvelAudioRef.current.currentTime = 0
-      marvelAudioRef.current.play().then(() => {
-        window.dispatchEvent(new CustomEvent('marvel_audio_playing', { detail: { playing: true } }))
-      }).catch((e) => {
-        console.warn('Autoplay blocked, falling back to Web Audio fanfare', e)
-        playTitleFanfare()
-      })
-    } else {
-      playTitleFanfare()
-    }
+    cinemaAudio.playMarvelIntro()
+    playTitleFanfare()
   }
 
   // Function to play dramatic cinematic opening fanfare on title card reveal
@@ -204,9 +175,7 @@ export default function CountdownLeader({ onComplete }) {
   }, [phase, onComplete])
 
   const handleSkip = () => {
-    if (marvelAudioRef.current) {
-      marvelAudioRef.current.pause()
-    }
+    cinemaAudio.playMarvelIntro()
     setPhase('transition')
     setTimeout(() => {
       if (onComplete) onComplete()
@@ -277,20 +246,17 @@ export default function CountdownLeader({ onComplete }) {
         </div>
       )}
 
-      {/* PHASE 2: DRAMATIC MARVEL-INSPIRED TITLE CARD REVEAL */}
+      {/* PHASE 2: DRAMATIC TITLE CARD REVEAL */}
       {phase === 'titlecard' && (
         <div className="text-center px-6 max-w-2xl transform animate-subtle-pulse select-none">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-red-600 text-white font-mono font-black text-xs tracking-[0.35em] uppercase mb-4 shadow-[0_0_30px_rgba(229,9,20,0.6)]">
-            <span>MARVEL PROTOCOL • STUDIOS</span>
-          </div>
+          <p className="text-xs sm:text-sm font-mono tracking-[0.35em] text-amber-400 uppercase mb-3 font-bold">
+            PRODUCED AND DIRECTED BY
+          </p>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-black text-white tracking-wider uppercase drop-shadow-[0_10px_35px_rgba(229,9,20,0.4)]">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-black text-white tracking-wider uppercase drop-shadow-[0_10px_35px_rgba(212,175,55,0.4)]">
             SHRAVAN KUMAWAT
           </h1>
-          <div className="h-0.5 w-28 mx-auto bg-gradient-to-r from-transparent via-red-500 to-transparent my-6" />
-          <p className="text-xs sm:text-sm font-mono text-amber-300 tracking-[0.25em] uppercase font-bold">
-            THE CINEMATIC UNIVERSE PREMIERE
-          </p>
+          <div className="h-0.5 w-24 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent my-6" />
         </div>
       )}
 

@@ -11,12 +11,12 @@ export default function ActMissions() {
       
       {/* Volumetric Cinema Atmosphere */}
       <div className="absolute top-1/4 left-10 w-[700px] h-[500px] bg-red-600/10 rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-[700px] h-[500px] bg-teal-500/10 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-[700px] h-[500px] bg-amber-500/10 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Act Eyebrow & Theatrical Headline */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="scroll-reveal text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-red-500/40 text-red-400 text-xs font-mono tracking-[0.25em] uppercase mb-4 shadow-xl shadow-red-500/10">
             <Clapperboard className="w-3.5 h-3.5 text-red-500" />
             <span>Act III • The Feature Productions</span>
@@ -35,7 +35,7 @@ export default function ActMissions() {
         </div>
 
         {/* 2x2 Grid of 3D Flipping Theatrical Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="scroll-reveal-zoom delay-100 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {projects.map((project, idx) => (
             <MissionCard key={project.id} project={project} index={idx} />
           ))}

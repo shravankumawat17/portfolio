@@ -114,7 +114,7 @@ export default function ActArsenal() {
   }
 
   return (
-    <div className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#050507]">
+    <div id="act-arsenal" className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#050507]">
       
       {/* Background Volumetric Glow in Deadpool Red & Warm Gold */}
       <div 
@@ -125,7 +125,7 @@ export default function ActArsenal() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Act Eyebrow & Theatrical Headline */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="scroll-reveal text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-red-600/50 text-red-400 text-xs font-mono tracking-[0.25em] uppercase mb-4 shadow-xl">
             <Flame className="w-3.5 h-3.5 text-red-500" />
             <span>Act II • The Cinematic Verse of Skills</span>
@@ -134,7 +134,7 @@ export default function ActArsenal() {
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-black text-white uppercase tracking-tight leading-tight">
             EVERY SKILL HAS A <br />
             <span 
-              className="transition-colors duration-700 underline decoration-wavy underline-offset-8"
+              className="transition-colors duration-700 tracking-wider"
               style={{ color: activeWorld.accent }}
             >
               MOVIE WORLD
@@ -147,7 +147,7 @@ export default function ActArsenal() {
         </div>
 
         {/* 4 Cinema Set Selectors in Deadpool Crimson & Gold */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+        <div className="scroll-reveal delay-100 grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
           {MOVIE_WORLDS.map((world) => {
             const isActive = world.id === activeWorldId
             return (
@@ -189,7 +189,7 @@ export default function ActArsenal() {
         <div 
           ref={stageRef}
           onMouseMove={handleMouseMove}
-          className={`spotlight-card bg-gradient-to-br ${activeWorld.bgGradient} border-2 rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-700 relative overflow-hidden group`}
+          className={`scroll-reveal-zoom spotlight-card bg-gradient-to-br ${activeWorld.bgGradient} border-2 rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-700 relative overflow-hidden group`}
           style={{ borderColor: `${activeWorld.accent}80` }}
         >
           {/* Dynamic Cursor Spotlight */}

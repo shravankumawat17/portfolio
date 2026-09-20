@@ -49,14 +49,14 @@ export default function CinemaVaultScenes() {
   const current = ICONIC_CINEMA_VAULT[activeIdx]
 
   return (
-    <div className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[#050507] border-y border-zinc-900/80 select-none overflow-hidden">
+    <div id="cinema-vault" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[#050507] border-y border-zinc-900/80 select-none overflow-hidden">
       {/* Background Volumetric Ambience */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-red-600/10 rounded-full blur-[190px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="scroll-reveal text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-950/90 border border-red-600/60 text-red-400 text-xs font-mono tracking-[0.3em] uppercase mb-4 shadow-xl">
             <Film className="w-3.5 h-3.5 text-red-500" />
             <span>The Cinematic Vault • Visual Direction</span>
@@ -72,7 +72,7 @@ export default function CinemaVaultScenes() {
         </div>
 
         {/* Big Theatrical Feature Board */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div className="scroll-reveal-zoom delay-100 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           
           {/* Main Cinematic Scene Canvas */}
           <div className="lg:col-span-8 relative rounded-3xl overflow-hidden border-2 border-red-600/50 shadow-[0_20px_60px_rgba(200,29,44,0.25)] group aspect-[16/9]">

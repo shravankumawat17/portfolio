@@ -6,7 +6,7 @@ export default function TrainingMontage() {
   const { training } = resumeData
 
   return (
-    <div className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[#060608] border-t border-zinc-900/80 overflow-hidden select-none">
+    <div id="training-montage" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[#060608] border-t border-zinc-900/80 overflow-hidden select-none">
       
       {/* Deadpool Crimson Ambient Lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-red-600/10 rounded-full blur-[180px] pointer-events-none" />
@@ -14,23 +14,23 @@ export default function TrainingMontage() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Post-Credits Eyebrow */}
-        <div className="flex items-center gap-3 mb-4">
+        <div className="scroll-reveal flex items-center gap-3 mb-4">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
           <span className="text-xs font-mono tracking-[0.3em] uppercase text-red-500 font-bold">
             Post-Credits Scene • The Training Montage
           </span>
         </div>
 
-        <h2 className="text-3xl sm:text-5xl font-serif font-black text-white uppercase tracking-tight mb-3">
+        <h2 className="scroll-reveal delay-100 text-3xl sm:text-5xl font-serif font-black text-white uppercase tracking-tight mb-3">
           TECHNICAL DRILLS & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-400">CERTIFICATIONS</span>
         </h2>
 
-        <p className="text-xs sm:text-sm text-zinc-300 font-sans max-w-xl mb-12 leading-relaxed">
+        <p className="scroll-reveal delay-200 text-xs sm:text-sm text-zinc-300 font-sans max-w-xl mb-12 leading-relaxed">
           Behind every blockbuster premiere lies deliberate engineering practice, continuous coursework, and verified skill mastery.
         </p>
 
         {/* Training Cards Grid with 3D Spotlight Tilt */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="scroll-reveal-zoom delay-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {training.map((item, idx) => (
             <div
               key={idx}

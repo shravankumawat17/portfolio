@@ -45,7 +45,7 @@ export default function ActOrigin() {
   }
 
   return (
-    <div className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#070709]">
+    <div id="act-origin" className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#070709]">
       
       {/* Supporting Movie Scene Backdrop (Top Gun / Maverick Flight Origin) */}
       <div className="absolute inset-0 pointer-events-none opacity-45 filter contrast-125 saturate-110">
@@ -60,7 +60,7 @@ export default function ActOrigin() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Act Header with Deadpool Red Clapperboard */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div className="scroll-reveal flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-3">
             <span className="flex h-3 w-3 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
@@ -82,7 +82,7 @@ export default function ActOrigin() {
         </div>
 
         {/* Theatrical Headline in Soothing Deadpool Crimson & Gold */}
-        <div className="max-w-3xl mb-12">
+        <div className="scroll-reveal delay-100 max-w-3xl mb-12">
           <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-bold block mb-2">
             The Hero's Awakening • Academic Discipline
           </span>
@@ -101,7 +101,7 @@ export default function ActOrigin() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Main Institution Card */}
-          <div className="lg:col-span-7 bg-gradient-to-br from-zinc-950/95 via-[#120a0c]/90 to-zinc-950/95 border-2 border-red-600/40 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl relative overflow-hidden flex flex-col justify-between group hover:border-red-500 transition-all duration-500">
+          <div className="scroll-reveal-left lg:col-span-7 bg-gradient-to-br from-zinc-950/95 via-[#120a0c]/90 to-zinc-950/95 border-2 border-red-600/40 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl relative overflow-hidden flex flex-col justify-between group hover:border-red-500 transition-all duration-500">
             <div>
               <div className="flex items-center justify-between text-zinc-400 text-xs font-mono uppercase mb-6">
                 <span className="flex items-center gap-2 text-red-400 font-bold bg-red-950/80 px-3 py-1 rounded-full border border-red-800">
@@ -139,7 +139,7 @@ export default function ActOrigin() {
           </div>
 
           {/* Visual Stat Counters with Deadpool Red & Warm Gold */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+          <div className="scroll-reveal-right delay-200 lg:col-span-5 flex flex-col justify-between gap-6">
             
             {/* Stat 1: 9.00 CGPA */}
             <div className="flex-1 bg-gradient-to-br from-zinc-950/95 via-[#1a0a0c]/90 to-zinc-950/95 border-2 border-red-600/50 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group hover:border-red-500 hover:shadow-[0_0_40px_rgba(200,29,44,0.35)] transition-all duration-300">

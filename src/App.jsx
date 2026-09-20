@@ -3,14 +3,19 @@ import ThreeCanvas from './components/ThreeCanvas'
 import FilmOverlay from './components/FilmOverlay'
 import CinemaNav from './components/CinemaNav'
 import DeadpoolKnifeCursor from './components/DeadpoolKnifeCursor'
+import ResumeSidebarDrawer from './components/ResumeSidebarDrawer'
 import CountdownLeader from './sections/start/CountdownLeader'
 import HeroCinemaUniverse from './sections/start/HeroCinemaUniverse'
 import WorkReel from './sections/work/WorkReel'
 import EndCredits from './sections/end/EndCredits'
+import useScrollReveal from './hooks/useScrollReveal'
 
 export default function App() {
   const [introActive, setIntroActive] = useState(true)
   const [currentSection, setCurrentSection] = useState('start')
+
+  // Initialize smooth scroll reveal animations & scene audio triggers
+  useScrollReveal()
 
   // Check session persistence
   useEffect(() => {
@@ -68,6 +73,9 @@ export default function App() {
         onNavigate={setCurrentSection}
         introActive={introActive}
       />
+
+      {/* Toggleable Resume Scene Breakdown Sidebar Drawer */}
+      {!introActive && <ResumeSidebarDrawer />}
 
       {/* Main Continuous Cinematic Feature */}
       <main className="w-full">

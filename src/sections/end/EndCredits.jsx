@@ -15,7 +15,7 @@ export default function EndCredits({ onLoopBack }) {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-red-600/10 rounded-full blur-[180px] pointer-events-none" />
 
       {/* End Credits Header Banner */}
-      <div className="max-w-4xl mx-auto px-4 mb-12 select-none">
+      <div className="scroll-reveal max-w-4xl mx-auto px-4 mb-12 select-none">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-700/60 text-zinc-300 text-xs font-mono tracking-widest uppercase mb-4">
           <Clapperboard className="w-3.5 h-3.5 text-red-500" />
           <span>Scene 03 • The Closing Credits</span>
@@ -30,10 +30,12 @@ export default function EndCredits({ onLoopBack }) {
       </div>
 
       {/* 1. Starring Hero Portrait Feature */}
-      <StarringPortrait />
+      <div className="scroll-reveal-zoom delay-100">
+        <StarringPortrait />
+      </div>
 
       {/* 2. Director's Statement / Engineering Philosophy */}
-      <div className="my-16 max-w-3xl mx-auto px-6 select-none">
+      <div className="scroll-reveal delay-200 my-16 max-w-3xl mx-auto px-6 select-none">
         <span className="text-xs font-mono tracking-[0.35em] text-amber-400 uppercase font-bold block mb-2">
           {directorNote.title}
         </span>
