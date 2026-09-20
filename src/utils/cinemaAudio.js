@@ -21,12 +21,13 @@ class CinemaAudioEngine {
     this.initialized = true
 
     try {
-      // 1. Initialize Marvel Intro Soundtrack Audio Element
-      const audio = new Audio('/assets/marvel-intro.mp4')
+      // 1. Initialize Deadpool Soundtrack (*NSYNC - Bye Bye Bye) Audio Element
+      const audio = new Audio('/assets/deadpool-bgm.mp3')
       audio.preload = 'auto'
-      audio.volume = 0.8
-      audio.loop = true // Keep Marvel intro song playing long and continuous across the site
+      audio.volume = 0.85
+      audio.loop = true // Keep Deadpool song playing long and continuous across the site
       this.marvelAudio = audio
+      this.bgmAudio = audio
       window.__portfolioMarvelAudio = audio
 
       audio.addEventListener('play', () => {
@@ -39,7 +40,7 @@ class CinemaAudioEngine {
         this.notifyStateChange()
       })
     } catch (e) {
-      console.warn('Could not initialize Marvel Audio track', e)
+      console.warn('Could not initialize Deadpool BGM audio track', e)
     }
 
     // Bind scroll sound listener
