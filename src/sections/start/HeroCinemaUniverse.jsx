@@ -38,10 +38,10 @@ export default function HeroCinemaUniverse({ onEnterVerse }) {
           className="w-full h-full object-cover sm:object-contain object-center filter brightness-90 contrast-110"
         />
 
-        {/* Cinematic Lighting Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-black/45 to-[#060608]/80 pointer-events-none" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/30 to-black/85 pointer-events-none" />
-        <div className="absolute inset-0 film-grain opacity-20 pointer-events-none" />
+        {/* Subtle Edge Lighting & Vignette Overlays (Center stays clear & bright) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-transparent to-[#060608]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 film-grain opacity-15 pointer-events-none" />
       </div>
 
       {/* Top Theatrical Badge & Download Strip */}
@@ -63,83 +63,73 @@ export default function HeroCinemaUniverse({ onEnterVerse }) {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. THE FLOATING 3D CINEMA MARQUEE (NO UNDERLINES)                         */}
+      {/* 2. DIRECT FLOATING 3D CINEMA TITLE (NO FRONT PANEL BOX / NO UNDERLINES)   */}
       {/* ========================================================================= */}
       <div 
-        className="relative z-20 max-w-4xl mx-auto px-4 my-auto text-center transition-all duration-500 ease-out py-8"
+        className="relative z-20 max-w-5xl mx-auto px-4 my-auto text-center transition-all duration-500 ease-out py-12"
         style={{
-          transform: `perspective(1000px) rotateX(${mousePos.y * -0.4}deg) rotateY(${mousePos.x * 0.4}deg) translateZ(30px)`
+          transform: `perspective(1000px) rotateX(${mousePos.y * -0.3}deg) rotateY(${mousePos.x * 0.3}deg) translateZ(20px)`
         }}
       >
-        {/* Glassmorphic Cinema Marquee Box */}
-        <div className="bg-black/75 backdrop-blur-xl border-2 border-red-600/70 rounded-3xl p-6 sm:p-10 md:p-12 shadow-[0_0_80px_rgba(200,29,44,0.35)] relative overflow-hidden group">
-          
-          {/* Corner Cinema Brackets */}
-          <div className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-amber-400 pointer-events-none" />
-          <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-amber-400 pointer-events-none" />
-          <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-amber-400 pointer-events-none" />
-          <div className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-amber-400 pointer-events-none" />
+        {/* Eyebrow Pill */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-amber-400/40 text-amber-400 text-xs font-mono tracking-[0.35em] uppercase mb-4 backdrop-blur-sm shadow-xl">
+          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <span>FEATURE PRESENTATION • DEADPOOL PROTOCOL</span>
+        </div>
 
-          {/* Eyebrow */}
-          <span className="text-[11px] sm:text-xs font-mono tracking-[0.4em] uppercase text-amber-400 font-bold block mb-3">
-            ★ FEATURE PRESENTATION ★
+        {/* Hero Title (Floating Directly Over Poster, Zero Underlines) */}
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif font-black text-white tracking-wider uppercase leading-none drop-shadow-[0_8px_30px_rgba(0,0,0,0.95)]">
+          THE CINEMATIC <br className="hidden sm:inline" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-300 to-amber-500">
+            UNIVERSE
           </span>
+          <span className="block mt-3 text-2xl sm:text-4xl md:text-5xl font-extrabold text-zinc-100 tracking-normal drop-shadow-[0_6px_25px_rgba(0,0,0,0.95)]">
+            OF SHRAVAN KUMAWAT
+          </span>
+        </h1>
 
-          {/* Hero Title (Clean, NO UNDERLINES) */}
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif font-black text-white tracking-wider uppercase leading-none drop-shadow-[0_10px_35px_rgba(0,0,0,0.95)]">
-            THE CINEMATIC <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-300 to-amber-500">
-              UNIVERSE
-            </span>
-            <span className="block mt-2 text-2xl sm:text-4xl md:text-5xl font-extrabold text-zinc-100 tracking-normal">
-              OF SHRAVAN KUMAWAT
-            </span>
-          </h1>
+        {/* Vision Statement */}
+        <p className="mt-6 text-sm sm:text-base md:text-lg text-zinc-100 font-serif italic max-w-2xl mx-auto leading-relaxed drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+          "A developer and AI engineer who visualizes every line of code, algorithm, and project as a living cinematic universe."
+        </p>
 
-          {/* Vision Statement */}
-          <p className="mt-5 text-xs sm:text-sm md:text-base text-zinc-200 font-serif italic max-w-2xl mx-auto leading-relaxed drop-shadow">
-            "A developer and AI engineer who visualizes every line of code, algorithm, and project as a living cinematic universe."
-          </p>
+        {/* Academic & Engineering Badges (Floating Glass Pills) */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-zinc-200">
+          <span className="px-3.5 py-1.5 rounded-full bg-black/60 border border-zinc-700/80 backdrop-blur-md shadow-lg">
+            Dwarkadas J. Sanghvi College of Engineering
+          </span>
+          <span className="text-red-500 font-bold hidden sm:inline">•</span>
+          <span className="px-3.5 py-1.5 rounded-full bg-black/70 border border-red-600/70 text-red-300 font-bold backdrop-blur-md shadow-lg">
+            B.Tech AI & Data Science (CGPA 9.00)
+          </span>
+          <span className="text-amber-400 font-bold hidden sm:inline">•</span>
+          <span className="px-3.5 py-1.5 rounded-full bg-black/70 border border-amber-500/70 text-amber-300 font-bold backdrop-blur-md shadow-lg">
+            JEE Main 97.93%ile
+          </span>
+        </div>
 
-          {/* Academic & Engineering Badges */}
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-zinc-300">
-            <span className="px-3 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700">
-              Dwarkadas J. Sanghvi College of Engineering
-            </span>
-            <span className="text-red-500 font-bold">•</span>
-            <span className="px-3 py-1 rounded-lg bg-red-950/80 border border-red-600 text-red-300 font-bold">
-              B.Tech AI & Data Science (CGPA 9.00)
-            </span>
-            <span className="text-red-500 font-bold">•</span>
-            <span className="px-3 py-1 rounded-lg bg-amber-950/80 border border-amber-600 text-amber-300 font-bold">
-              JEE Main 97.93%ile
-            </span>
-          </div>
+        {/* Floating Action Buttons */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <button
+            onClick={onEnterVerse}
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-mono font-bold text-xs uppercase tracking-widest shadow-2xl shadow-red-600/40 hover:scale-105 active:scale-95 transition-all"
+          >
+            <Play className="w-4 h-4 fill-white" />
+            <span>Begin Feature Journey</span>
+          </button>
 
-          {/* CTAs Inside Marquee */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <button
-              onClick={onEnterVerse}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-mono font-bold text-xs uppercase tracking-widest shadow-xl shadow-red-600/30 hover:scale-105 active:scale-95 transition-all"
-            >
-              <Play className="w-4 h-4 fill-white" />
-              <span>Begin Feature Journey</span>
-            </button>
-
-            <button
-              onClick={() => setShowPass(!showPass)}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-red-600/50 hover:border-red-500 text-xs font-mono uppercase tracking-wider transition-all"
-            >
-              <Ticket className="w-4 h-4 text-red-500" />
-              <span>{showPass ? 'Close 3D Pass' : 'Inspect 3D Director Pass'}</span>
-            </button>
-          </div>
-
+          <button
+            onClick={() => setShowPass(!showPass)}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black/70 hover:bg-black/90 text-zinc-200 hover:text-white border border-red-600/60 hover:border-red-500 text-xs font-mono uppercase tracking-wider backdrop-blur-md shadow-xl transition-all hover:scale-105 active:scale-95"
+          >
+            <Ticket className="w-4 h-4 text-red-500" />
+            <span>{showPass ? 'Close 3D Pass' : 'Inspect 3D Director Pass'}</span>
+          </button>
         </div>
 
         {/* 3D Holographic Director's Pass Drawer */}
         {showPass && (
-          <div className="mt-4 animate-in fade-in zoom-in duration-300">
+          <div className="mt-6 animate-in fade-in zoom-in duration-300">
             <DirectorsPass3D />
           </div>
         )}
