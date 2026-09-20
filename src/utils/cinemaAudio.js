@@ -181,6 +181,56 @@ class CinemaAudioEngine {
       osc.stop(now + 1.25)
     } catch (e) {}
   }
+
+  // Mechanical ticket punch and paper perforation tear sound
+  playTicketPunchSound() {
+    const ctx = this.getAudioContext()
+    if (!ctx) return
+
+    try {
+      const now = ctx.currentTime
+
+      // 1. Mechanical stamper 'clack'
+      const osc = ctx.createOscillator()
+      const oscGain = ctx.createGain()
+      osc.type = 'triangle'
+      osc.frequency.setValueAtTime(650, now)
+      osc.frequency.exponentialRampToValueAtTime(120, now + 0.05)
+
+      oscGain.gain.setValueAtTime(0.3, now)
+      oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06)
+
+      osc.connect(oscGain)
+      oscGain.connect(ctx.destination)
+      osc.start(now)
+      osc.stop(now + 0.07)
+
+      // 2. Paper perforation tear noise snap
+      const bufferSize = Math.floor(ctx.sampleRate * 0.08)
+      const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
+      const output = noiseBuffer.getChannelData(0)
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.25))
+      }
+
+      const whiteNoise = ctx.createBufferSource()
+      whiteNoise.buffer = noiseBuffer
+
+      const filter = ctx.createBiquadFilter()
+      filter.type = 'bandpass'
+      filter.frequency.setValueAtTime(2400, now)
+      filter.Q.setValueAtTime(2.0, now)
+
+      const noiseGain = ctx.createGain()
+      noiseGain.gain.setValueAtTime(0.18, now)
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.07)
+
+      whiteNoise.connect(filter)
+      filter.connect(noiseGain)
+      noiseGain.connect(ctx.destination)
+      whiteNoise.start(now)
+    } catch (e) {}
+  }
 }
 
 export const cinemaAudio = new CinemaAudioEngine()

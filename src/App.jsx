@@ -4,6 +4,7 @@ import FilmOverlay from './components/FilmOverlay'
 import CinemaNav from './components/CinemaNav'
 import DeadpoolKnifeCursor from './components/DeadpoolKnifeCursor'
 import ResumeSidebarDrawer from './components/ResumeSidebarDrawer'
+import BoxOfficeTicketStage from './sections/start/BoxOfficeTicketStage'
 import CountdownLeader from './sections/start/CountdownLeader'
 import HeroCinemaUniverse from './sections/start/HeroCinemaUniverse'
 import WorkReel from './sections/work/WorkReel'
@@ -11,7 +12,7 @@ import EndCredits from './sections/end/EndCredits'
 import useScrollReveal from './hooks/useScrollReveal'
 
 export default function App() {
-  const [introActive, setIntroActive] = useState(true)
+  const [introPhase, setIntroPhase] = useState('ticket') // 'ticket' | 'countdown' | 'completed'
   const [currentSection, setCurrentSection] = useState('start')
 
   // Initialize smooth scroll reveal animations & scene audio triggers
@@ -22,25 +23,29 @@ export default function App() {
     try {
       const alreadyPlayed = sessionStorage.getItem('shravan_intro_played')
       if (alreadyPlayed === 'true') {
-        setIntroActive(false)
+        setIntroPhase('completed')
       }
     } catch (e) {
       // fallback
     }
   }, [])
 
+  const handleTicketConfirmed = () => {
+    setIntroPhase('countdown')
+  }
+
   const handleIntroComplete = () => {
     try {
       sessionStorage.setItem('shravan_intro_played', 'true')
     } catch (e) {}
-    setIntroActive(false)
+    setIntroPhase('completed')
   }
 
   const handleLoopBack = () => {
     try {
       sessionStorage.removeItem('shravan_intro_played')
     } catch (e) {}
-    setIntroActive(true)
+    setIntroPhase('ticket')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -62,8 +67,13 @@ export default function App() {
       {/* Deadpool Combat Knife / Katana Custom Cursor */}
       <DeadpoolKnifeCursor />
 
-      {/* Opening Countdown & Title Card Leader */}
-      {introActive ? (
+      {/* 1. Pre-Show Stage: Indian Cinema Statutory Warning & 3D Box Office Ticket */}
+      {introPhase === 'ticket' ? (
+        <BoxOfficeTicketStage onTicketConfirmed={handleTicketConfirmed} />
+      ) : null}
+
+      {/* 2. Opening 3-Second Countdown & Title Card Leader */}
+      {introPhase === 'countdown' ? (
         <CountdownLeader onComplete={handleIntroComplete} />
       ) : null}
 
@@ -71,11 +81,11 @@ export default function App() {
       <CinemaNav 
         currentSection={currentSection}
         onNavigate={setCurrentSection}
-        introActive={introActive}
+        introActive={introPhase !== 'completed'}
       />
 
       {/* Toggleable Resume Scene Breakdown Sidebar Drawer */}
-      {!introActive && <ResumeSidebarDrawer />}
+      {introPhase === 'completed' && <ResumeSidebarDrawer />}
 
       {/* Main Continuous Cinematic Feature */}
       <main className="w-full">

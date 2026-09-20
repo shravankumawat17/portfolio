@@ -3,7 +3,7 @@ import { FastForward, Volume2 } from 'lucide-react'
 import cinemaAudio from '../../utils/cinemaAudio'
 
 export default function CountdownLeader({ onComplete }) {
-  const [count, setCount] = useState(8)
+  const [count, setCount] = useState(3)
   const [phase, setPhase] = useState('countdown') // 'countdown' | 'titlecard' | 'transition'
   const [showSkip, setShowSkip] = useState(false)
   const audioCtxRef = useRef(null)
@@ -142,21 +142,21 @@ export default function CountdownLeader({ onComplete }) {
     }
   }, [count, phase])
 
-  // Countdown timer logic (8 down to 1)
+  // Countdown timer logic (3 seconds: 3 -> 2 -> 1)
   useEffect(() => {
     if (phase !== 'countdown') return
 
     if (count > 1) {
       const timer = setTimeout(() => {
         setCount(c => c - 1)
-      }, 700)
+      }, 1000)
       return () => clearTimeout(timer)
     } else {
       // Transition to title card with Marvel Studios intro theme
       const finishCountdown = setTimeout(() => {
         setPhase('titlecard')
         playMarvelIntroTheme()
-      }, 700)
+      }, 1000)
       return () => clearTimeout(finishCountdown)
     }
   }, [count, phase])
