@@ -4,15 +4,9 @@ import ActArsenal from './ActArsenal'
 import ActMissions from './ActMissions'
 import TrainingMontage from './TrainingMontage'
 import FilmStripBand from '../../components/FilmStripBand'
-import PosterWall from '../start/PosterWall'
 import CinemaVaultScenes from './CinemaVaultScenes'
 
 export default function WorkReel() {
-  const handleScrollToMissions = () => {
-    const el = document.getElementById('act-missions')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <section id="work" className="relative bg-[#060608] select-none">
       {/* Film Reel Sprocket Edge Accents (Desktop only) */}
@@ -36,9 +30,6 @@ export default function WorkReel() {
 
       {/* ACT I: ORIGIN STORY (Education, CGPA 9.00, JEE 97.93%ile, Top Gun Watermark) */}
       <ActOrigin />
-
-      {/* SCENE 02: THE 36-MOVIE UNIVERSE ARCHIVE & 3D MARVEL POSTER WALL */}
-      <PosterWall onEnterFeature={handleScrollToMissions} />
 
       {/* ACT II: THE ARSENAL (4 Movie Worlds with real scene backdrops & posters) */}
       <ActArsenal />

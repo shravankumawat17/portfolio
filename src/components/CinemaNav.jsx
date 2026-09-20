@@ -17,7 +17,6 @@ export default function CinemaNav({ currentSection = 'start', onNavigate, introA
 
   const navItems = [
     { id: 'start', label: 'The Universe', scene: 'Scene 01 • The Cinematic Universe' },
-    { id: 'poster-wall', label: '36 Movies', scene: 'Archive • 36 Movie Inspirations' },
     { id: 'work', label: 'Movie Verses', scene: 'Scene 02 • Skills & Productions' },
     { id: 'credits', label: 'Starring Credits', scene: 'Scene 03 • Starring Shravan' },
   ]
