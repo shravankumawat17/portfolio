@@ -88,7 +88,7 @@ export default function PosterWall({ onEnterFeature }) {
             onClick={() => setViewMode('master-art')}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all ${
               viewMode === 'master-art'
-                ? 'bg-blue-600 text-white font-bold shadow-lg shadow-blue-600/40 border border-blue-500'
+                ? 'bg-red-600 text-white font-bold shadow-lg shadow-red-600/40 border border-red-500'
                 : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
             }`}
           >
@@ -280,10 +280,10 @@ export default function PosterWall({ onEnterFeature }) {
       {/* VIEW 3: SINGLE MASTER COMPOSITE ARTWORK */}
       {viewMode === 'master-art' && (
         <div className="max-w-4xl mx-auto py-6 px-4 text-center">
-          <div className="p-4 bg-zinc-950 border border-blue-500/40 rounded-3xl shadow-2xl overflow-hidden relative group">
+          <div className="p-4 bg-zinc-950 border border-red-500/40 rounded-3xl shadow-2xl overflow-hidden relative group">
             <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
               <img
-                src="/assets/combined-movie-posters.jpg"
+                src="/assets/combined-movie-posters-wide.jpg"
                 alt="Shravan Kumawat Combined Movie Posters Master Artwork"
                 className="w-full h-auto max-h-[75vh] object-contain mx-auto transition-transform duration-500 group-hover:scale-102"
               />
@@ -291,18 +291,18 @@ export default function PosterWall({ onEnterFeature }) {
 
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4 px-2">
               <div className="text-left">
-                <span className="text-xs font-mono uppercase tracking-widest text-blue-400 font-bold block">
+                <span className="text-xs font-mono uppercase tracking-widest text-red-500 font-bold block">
                   Unified Master File
                 </span>
                 <h4 className="text-lg font-serif font-bold text-white">
-                  Shravan's 36-Film Composite Artwork (1920 × 2880)
+                  Shravan's 36-Film Composite Artwork (2520 × 1560)
                 </h4>
               </div>
 
               <a
-                href="/assets/combined-movie-posters.jpg"
+                href="/assets/combined-movie-posters-wide.jpg"
                 download="Shravan_Kumawat_Combined_Movie_Posters.jpg"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-mono font-bold uppercase tracking-wider shadow-xl shadow-blue-600/30 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-mono font-bold uppercase tracking-wider shadow-xl shadow-red-600/30 transition-all hover:scale-105"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Master Poster (HD)</span>

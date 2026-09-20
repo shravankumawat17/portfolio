@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import { Cpu, Layers, Zap, Palette, Film, Sparkles, ChevronRight, Terminal, Compass } from 'lucide-react'
+import { Cpu, Layers, Zap, Palette, Film, Sparkles, ChevronRight, Terminal, Compass, Flame } from 'lucide-react'
 
 const MOVIE_WORLDS = [
   {
     id: 'ai-machine',
     title: 'THE MACHINE MIND',
-    cinemaReference: 'The Matrix • Interstellar • Iron Man',
+    cinemaReference: 'The Matrix • Interstellar • Iron Man (J.A.R.V.I.S.)',
     genre: 'Sci-Fi / Synthetic Intelligence',
-    accent: '#00f2fe',
-    accentGlow: 'rgba(0, 242, 254, 0.4)',
-    bgGradient: 'from-[#041a24] via-[#071118] to-[#050507]',
+    accent: '#e50914',
+    accentGlow: 'rgba(229, 9, 20, 0.4)',
+    bgGradient: 'from-[#1c080a] via-[#0d0506] to-[#050507]',
     sceneImage: '/assets/movie-scenes/project-therapist.jpg',
     moviePosters: [
       { title: 'Source Code', poster: '/posters_cache/source-code.jpg' },
@@ -30,14 +30,14 @@ const MOVIE_WORLDS = [
     title: "THE ARCHITECT'S INCEPTION",
     cinemaReference: 'Inception • Spider-Man • Complete MCU',
     genre: 'Urban Architectural / Kinetic Reality',
-    accent: '#3b82f6',
-    accentGlow: 'rgba(59, 130, 246, 0.4)',
-    bgGradient: 'from-[#081830] via-[#060e1c] to-[#050507]',
+    accent: '#d4af37',
+    accentGlow: 'rgba(212, 175, 55, 0.4)',
+    bgGradient: 'from-[#1c1608] via-[#0d0a04] to-[#050507]',
     sceneImage: '/assets/movie-scenes/world-inception.jpg',
     moviePosters: [
       { title: 'Spider-Man', poster: '/posters_cache/spider-man.jpg' },
       { title: 'Complete MCU', poster: '/posters_cache/complete-mcu.jpg' },
-      { title: 'Source Code', poster: '/posters_cache/source-code.jpg' }
+      { title: 'Inception', poster: '/posters_cache/source-code.jpg' }
     ],
     tagline: 'Bending viewport dimensions and structuring modular component universes.',
     narrative: 'Like Inception’s dream architects folding skyscrapers in half, frontend engineering is the art of constructing seamless, responsive realities. Every DOM node, state tree, and layout transition is engineered to react with zero friction.',
@@ -54,9 +54,9 @@ const MOVIE_WORLDS = [
     title: 'THE IRON PRECISION',
     cinemaReference: 'The Dark Knight • John Wick • Top Gun: Maverick',
     genre: 'High-Stakes Action / Cold Tactical Precision',
-    accent: '#d4af37',
-    accentGlow: 'rgba(212, 175, 55, 0.4)',
-    bgGradient: 'from-[#221c08] via-[#100d04] to-[#050507]',
+    accent: '#c81d2c',
+    accentGlow: 'rgba(200, 29, 44, 0.45)',
+    bgGradient: 'from-[#20080a] via-[#100406] to-[#050507]',
     sceneImage: '/assets/movie-scenes/world-darkknight.jpg',
     moviePosters: [
       { title: 'Top Gun: Maverick', poster: '/posters_cache/top-gun-maverick.jpg' },
@@ -80,7 +80,7 @@ const MOVIE_WORLDS = [
     genre: 'Artistic Auteur / Color Theory & Symmetry',
     accent: '#e0705a',
     accentGlow: 'rgba(224, 112, 90, 0.4)',
-    bgGradient: 'from-[#261410] via-[#120806] to-[#050507]',
+    bgGradient: 'from-[#24100c] via-[#120705] to-[#050507]',
     sceneImage: '/assets/movie-scenes/origin-topgun.jpg',
     moviePosters: [
       { title: 'Blue Jay', poster: '/posters_cache/blue-jay.jpg' },
@@ -106,7 +106,7 @@ export default function ActArsenal() {
   return (
     <div className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#050507]">
       
-      {/* Background Volumetric Glow tracking active movie color */}
+      {/* Background Volumetric Glow in Deadpool Red & Warm Gold */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full blur-[200px] pointer-events-none transition-colors duration-1000 opacity-25"
         style={{ backgroundColor: activeWorld.accent }}
@@ -116,8 +116,8 @@ export default function ActArsenal() {
         
         {/* Act Eyebrow & Theatrical Headline */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-700 text-zinc-300 text-xs font-mono tracking-[0.25em] uppercase mb-4 shadow-xl">
-            <Film className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-red-600/50 text-red-400 text-xs font-mono tracking-[0.25em] uppercase mb-4 shadow-xl">
+            <Flame className="w-3.5 h-3.5 text-red-500" />
             <span>Act II • The Cinematic Verse of Skills</span>
           </div>
 
@@ -132,11 +132,11 @@ export default function ActArsenal() {
           </h2>
 
           <p className="mt-4 text-xs sm:text-sm md:text-base text-zinc-300 font-sans leading-relaxed">
-            I visualize technical engineering through the lens of cinema genres. Step across four distinct movie sets with real visual backdrops, character aesthetics, and technical weapon classes.
+            I visualize technical engineering through the lens of cinema genres. Step across four distinct movie sets with real visual backdrops, supporting movie posters, and technical capabilities.
           </p>
         </div>
 
-        {/* 4 Cinema Set Selectors */}
+        {/* 4 Cinema Set Selectors in Deadpool Crimson & Gold */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
           {MOVIE_WORLDS.map((world) => {
             const isActive = world.id === activeWorldId
@@ -144,9 +144,9 @@ export default function ActArsenal() {
               <button
                 key={world.id}
                 onClick={() => setActiveWorldId(world.id)}
-                className={`p-4 rounded-2xl text-left border transition-all duration-500 flex flex-col justify-between ${
+                className={`p-4 rounded-2xl text-left border-2 transition-all duration-500 flex flex-col justify-between ${
                   isActive
-                    ? 'bg-zinc-900/95 shadow-2xl scale-102'
+                    ? 'bg-zinc-900/95 shadow-2xl scale-102 border-red-600'
                     : 'bg-zinc-950/60 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900/40 opacity-70 hover:opacity-100'
                 }`}
                 style={{
@@ -178,9 +178,9 @@ export default function ActArsenal() {
         {/* ACTIVE MOVIE WORLD SHOWCASE WITH REAL POSTERS & SCENE IMAGES */}
         <div 
           className={`bg-gradient-to-br ${activeWorld.bgGradient} border-2 rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-700 relative overflow-hidden`}
-          style={{ borderColor: `${activeWorld.accent}70` }}
+          style={{ borderColor: `${activeWorld.accent}80` }}
         >
-          {/* Subtle Scene Backdrop Watermark */}
+          {/* Supporting Scene Backdrop */}
           {activeWorld.sceneImage && (
             <div className="absolute inset-0 pointer-events-none opacity-20">
               <img
@@ -210,7 +210,7 @@ export default function ActArsenal() {
               </span>
             </div>
 
-            {/* Split: Narrative & Real Movie Poster Gallery */}
+            {/* Split: Narrative & Real Supporting Movie Posters */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10 items-center">
               
               {/* Narrative Story Box */}
@@ -223,7 +223,7 @@ export default function ActArsenal() {
                 </p>
               </div>
 
-              {/* Real Movie Poster Cards Tilted in 3D */}
+              {/* Supporting Movie Posters Tilted in 3D */}
               <div className="lg:col-span-4 flex items-center justify-center gap-2 sm:gap-3 perspective-[800px]">
                 {activeWorld.moviePosters.map((mp, i) => (
                   <div
@@ -233,7 +233,7 @@ export default function ActArsenal() {
                       transformStyle: 'preserve-3d'
                     }}
                     className={`relative w-24 sm:w-28 aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 transition-transform duration-300 hover:scale-110 hover:z-30 ${
-                      i === 1 ? 'border-amber-400 shadow-amber-400/30' : 'border-zinc-700'
+                      i === 1 ? 'border-amber-400 shadow-amber-400/30' : 'border-red-600/60'
                     }`}
                   >
                     <img
@@ -255,7 +255,7 @@ export default function ActArsenal() {
               {activeWorld.skills.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-2xl bg-black/70 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between group hover:translate-x-1"
+                  className="p-4 rounded-2xl bg-black/75 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between group hover:translate-x-1"
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-sm font-mono font-bold text-white group-hover:text-amber-200 transition-colors">
@@ -273,7 +273,7 @@ export default function ActArsenal() {
             {/* Production Footer */}
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
               <span>Visualized as Cinema • Engineered in Code</span>
-              <span className="font-bold" style={{ color: activeWorld.accent }}>Battle-Tested Technical Arsenal</span>
+              <span className="font-bold" style={{ color: activeWorld.accent }}>Deadpool Arsenal Certified</span>
             </div>
 
           </div>

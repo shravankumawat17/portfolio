@@ -107,9 +107,9 @@ export default function ContactPlate() {
               href={channels.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-blue-500/50 text-xs font-mono uppercase tracking-wider transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-red-500/50 text-xs font-mono uppercase tracking-wider transition-all"
             >
-              <LinkedinIcon className="w-4 h-4 text-blue-400" />
+              <LinkedinIcon className="w-4 h-4 text-red-500" />
               <span>LinkedIn</span>
             </a>
           </div>
