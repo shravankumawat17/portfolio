@@ -40,5 +40,3 @@ dist-ssr/
 *.sln
 *.sw?
 
-# Temporary asset caches
-public/posters_cache/
