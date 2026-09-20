@@ -48,13 +48,13 @@ export default function ActOrigin() {
     <div className="relative py-28 px-4 sm:px-6 lg:px-8 border-b border-zinc-900 overflow-hidden select-none bg-[#070709]">
       
       {/* Supporting Movie Scene Backdrop (Top Gun / Maverick Flight Origin) */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 filter contrast-125 saturate-110">
+      <div className="absolute inset-0 pointer-events-none opacity-45 filter contrast-125 saturate-110">
         <img
           src="/assets/movie-scenes/origin-topgun.jpg"
           alt="Origin Theme Backdrop"
           className="w-full h-full object-cover object-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/80 to-[#070709]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/50 to-[#070709]/80" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">

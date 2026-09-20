@@ -68,14 +68,14 @@ export default function MissionCard({ project, index }) {
       }}
       className="spotlight-card relative bg-gradient-to-br from-zinc-950 via-[#100a0c] to-zinc-950 border-2 border-red-600/40 hover:border-red-500 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 group flex flex-col justify-between select-none"
     >
-      {/* 1. MOVIE SCENE STILL AS ATMOSPHERIC BACKGROUND (Not intruding on text) */}
-      <div className="absolute inset-0 pointer-events-none opacity-15 group-hover:opacity-25 transition-opacity duration-500">
+      {/* 1. MOVIE SCENE STILL AS ATMOSPHERIC BACKGROUND (Rich & Visible) */}
+      <div className="absolute inset-0 pointer-events-none opacity-35 group-hover:opacity-50 transition-opacity duration-500">
         <img
           src={art.bgScene}
           alt={project.title}
-          className="w-full h-full object-cover object-center filter contrast-125"
+          className="w-full h-full object-cover object-center filter contrast-125 brightness-95"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/85 to-zinc-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/70 to-zinc-950/50" />
       </div>
 
       {/* Top Deadpool Crimson Accent Bar */}

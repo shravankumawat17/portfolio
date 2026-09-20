@@ -202,13 +202,13 @@ export default function ActArsenal() {
 
           {/* Supporting Scene Backdrop */}
           {activeWorld.sceneImage && (
-            <div className="absolute inset-0 pointer-events-none opacity-20">
+            <div className="absolute inset-0 pointer-events-none opacity-40 group-hover:opacity-55 transition-opacity duration-500">
               <img
                 src={activeWorld.sceneImage}
                 alt={activeWorld.title}
-                className="w-full h-full object-cover object-center filter contrast-125"
+                className="w-full h-full object-cover object-center filter contrast-125 brightness-95"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
             </div>
           )}
 
