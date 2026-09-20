@@ -3,7 +3,7 @@ import ThreeCanvas from './components/ThreeCanvas'
 import FilmOverlay from './components/FilmOverlay'
 import CinemaNav from './components/CinemaNav'
 import CountdownLeader from './sections/start/CountdownLeader'
-import PosterWall from './sections/start/PosterWall'
+import HeroCinemaUniverse from './sections/start/HeroCinemaUniverse'
 import WorkReel from './sections/work/WorkReel'
 import EndCredits from './sections/end/EndCredits'
 
@@ -67,8 +67,8 @@ export default function App() {
 
       {/* Main Continuous Cinematic Feature */}
       <main className="w-full">
-        {/* START: Scene 01 • Mosaic Wall */}
-        <PosterWall onEnterFeature={handleEnterFeature} />
+        {/* START: Scene 01 • The Cinematic Universe Landing */}
+        <HeroCinemaUniverse onEnterVerse={handleEnterFeature} />
 
         {/* WORK: Scene 02 • Acts I, II, III & Training */}
         <WorkReel />

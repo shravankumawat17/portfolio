@@ -8,7 +8,7 @@
   --accent-gold: #d4af37;
   --accent-red: #c81d2c;
   --accent-blue: #3b6ea5;
-  --accent-teal: #2fa89a;
+  --accent-cyan: #00f2fe;
 }
 
 /* Custom Film Grain Texture overlay */
@@ -17,28 +17,43 @@
   pointer-events: none;
 }
 
+/* Radial Vignette Falloff */
+.bg-radial-vignette {
+  background: radial-gradient(circle at center, transparent 35%, rgba(5, 5, 7, 0.95) 95%);
+}
+
 /* Vignette shadow around cinema frame */
 .cinema-vignette {
-  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.92);
+  box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.95);
   pointer-events: none;
 }
 
-/* Radial clock wipe for 8-1 Countdown */
-@keyframes clockWipe {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+/* 3D Cinematic Zoom & Perspective Classes */
+.cinematic-zoom-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
 }
 
-.animate-clock-wipe {
-  animation: clockWipe 1s linear infinite;
-  transform-origin: center center;
+/* Anamorphic compression effect */
+.anamorphic-compress {
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
 }
 
-/* Subtle projector jitter */
+.anamorphic-compress:hover {
+  transform: scaleY(1.02) scaleX(0.99) translateZ(20px);
+}
+
+/* Smooth slow spin for 3D power cores */
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-slow-spin {
+  animation: slowSpin 25s linear infinite;
+}
+
+/* Projector jitter effect */
 @keyframes projectorJitter {
   0%, 100% { transform: translate(0, 0); }
   25% { transform: translate(-0.5px, 0.5px); }
@@ -50,26 +65,28 @@
   animation: projectorJitter 0.2s steps(2, start) infinite;
 }
 
-/* Custom 3D perspective card container */
-.perspective-1000 {
-  perspective: 1000px;
+/* Radial clock wipe for 8-1 Countdown */
+@keyframes clockWipe {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.transform-style-3d {
-  transform-style: preserve-3d;
+.animate-clock-wipe {
+  animation: clockWipe 1s linear infinite;
+  transform-origin: center center;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #08080c;
+  background: #060608;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #232330;
+  background: #1c1c28;
   border-radius: 4px;
 }
 

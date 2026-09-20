@@ -16,9 +16,9 @@ export default function CinemaNav({ currentSection = 'start', onNavigate, introA
   if (introActive) return null
 
   const navItems = [
-    { id: 'start', label: 'Start', scene: 'Scene 01 • Mosaic Wall' },
-    { id: 'work', label: 'The Feature', scene: 'Scene 02 • Acts & Missions' },
-    { id: 'credits', label: 'Credits', scene: 'Scene 03 • Starring Shravan' },
+    { id: 'start', label: 'The Universe', scene: 'Scene 01 • The Cinematic Universe' },
+    { id: 'work', label: 'Movie Verses', scene: 'Scene 02 • Skills & Productions' },
+    { id: 'credits', label: 'Starring Credits', scene: 'Scene 03 • Starring Shravan' },
   ]
 
   const scrollToSection = (id) => {
